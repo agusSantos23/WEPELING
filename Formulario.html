@@ -1,40 +1,50 @@
-<h1>Formulario</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Formulario</h1>
 
-<form action="" method="post">
-    <fieldset>
-        <legend>Datos</legend>
-        <label for="name"><input type="text" placeholder="Nombre del Evento"></label>
-        <label for="date"><input type="datetime-local" min="2024-04-01T00:00" max="2024-12-31T00:00" name="date" id="dateInput"></label>
-        <label for="location"><input type="text" placeholder="Ubicacion"></label>
-        <label for="description"><textarea name="description" id="areaDescription" cols="30" rows="10" placeholder="Añade una description*" required></textarea></label>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Datos</legend>
+            <label for="name"><input type="text" placeholder="Nombre del Evento"></label>
+            <label for="date"><input type="datetime-local" min="2024-04-01T00:00" max="2024-12-31T00:00" name="date" id="dateInput"></label>
+            <label for="location"><input type="text" placeholder="Ubicacion"></label>
+            <label for="description"><textarea name="description" id="areaDescription" cols="30" rows="10" placeholder="Añade una description*" spellcheck="true" required></textarea></label>
 
-    </fieldset>
-    <fieldset>
-        <legend>Pago</legend>
-        <label for="categories">
-            <select name="categories" id="cat">
-                <option value="pop">Pop</option>
-                <option value="Reggaeton">Reggaeton</option>
-                <option value="Jazz">Jazz</option>
-                <option value="Rock">Rock</option>
-            </select>
-        </label>
-    
-        <label for="Free">
-            Gratuito<input type="radio" name="tipePay" id="Free">
-        </label>
+        </fieldset>
+        <fieldset>
+            <legend>Pago</legend>
+            <label for="categories">
+                <select name="categories" id="cat">
+                    <option value="pop">Pop</option>
+                    <option value="Reggaeton">Reggaeton</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Rock">Rock</option>
+                </select>
+            </label>
+        
+            <label for="Free">
+                Gratuito<input type="radio" name="tipePay" id="Free">
+            </label>
 
-        <label for="Pay">
-            Pagos<input type="radio" name="tipePay" id="Pay">
-        </label>
+            <label for="Pay">
+                Pagos<input type="radio" name="tipePay" id="Pay">
+            </label>
 
-        <label for="typePay">
-            <select name="typePay" id="typePay">
-                <option value="Visa">Visa</option>
-                <option value="Mastercard">Mastercard</option>
-                <option value="Paypal">Paypal</option>
-            </select>
-        </label>
-    </fieldset>
-    
-</form>
+            <label for="typePay">
+                <select name="typePay" id="typePay">
+                    <option value="Visa">Visa</option>
+                    <option value="Mastercard">Mastercard</option>
+                    <option value="Paypal">Paypal</option>
+                </select>
+            </label>
+        </fieldset>
+        
+    </form>
+</body>
+</html>
