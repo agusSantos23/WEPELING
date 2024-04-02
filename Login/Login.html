@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../recursos/Login.css">
+    <link rel="stylesheet" href="../recursos/css/Login.css">
+    <link rel="icon" type="image/jpg" href="../recursos/L.ico"/>
     <title>Login</title>
 </head>
 <body>
@@ -11,15 +12,17 @@
     
         <form action="" method="post">
             
-            <label for="nameUser">
-                <input type="text" placeholder="Nombre de usuario">
-            </label>
+            <div>
+                <label for="nameUser">
+                    <input type="text" placeholder="Nombre de usuario">
+                </label>
+    
+                <label for="password">
+                    <input type="password" placeholder="Contraseña">
+                </label>
+            </div>
 
-            <label for="password">
-                <input type="password" placeholder="Contraseña">
-            </label>
-
-            <h4><a href="">He olvidado mi contraseña</a></h4>
+            <h4><a href="./Recuperacion.html">He olvidado mi contraseña</a></h4>
 
             <button type="submit">Iniciar sesion</button>
         </form>
