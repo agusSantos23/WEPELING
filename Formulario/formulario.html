@@ -11,16 +11,16 @@
     <form action="" method="post">
         <fieldset>
             <legend>Datos</legend>
-            <label for="name"><input type="text" placeholder="Nombre del Evento"></label>
-            <label for="date"><input type="datetime-local" min="2024-04-01T00:00" max="2024-12-31T00:00" name="date" id="dateInput"></label>
-            <label for="location"><input type="text" placeholder="Ubicacion"></label>
-            <label for="description"><textarea name="description" id="areaDescription" cols="30" rows="10" placeholder="Añade una description*" spellcheck="true" required></textarea></label>
+            <label for="name"><input id="name" name="name" type="text" placeholder="Nombre del Evento" required></label>
+            <label for="date"><input id="date" name="date" type="datetime-local" min="2024-04-01T00:00" max="2024-12-31T00:00" name="date" id="dateInput" required></label>
+            <label for="location"><input id="location" name="location" type="text" placeholder="Ubicacion" required></label>
+            <label for="areaDescription"><textarea name="areaDescription" id="areaDescription" cols="30" rows="10" placeholder="Añade una description*" spellcheck="true" required></textarea></label>
 
         </fieldset>
         <fieldset>
             <legend>Pago</legend>
-            <label for="categories">
-                <select name="categories" id="cat">
+            <label for="cate">
+                <select name="cate" id="cate" required>
                     <option value="pop">Pop</option>
                     <option value="Reggaeton">Reggaeton</option>
                     <option value="Jazz">Jazz</option>
@@ -43,7 +43,9 @@
                     <option value="Paypal">Paypal</option>
                 </select>
             </label>
+
         </fieldset>
+        <button type="submit">Crear Evento</button>
         
     </form>
 </body>
