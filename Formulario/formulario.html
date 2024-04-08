@@ -1,65 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
+    <head>
+        <title>Formulario</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
 
-    
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
 
-    
-    
-    
-    
-
-
-
-    <h1>Formulario</h1>
-
-    <form action="" method="post">
-        <fieldset>
-            <legend>Datos</legend>
-            <label for="name"><input id="name" name="name" type="text" placeholder="Nombre del Evento" required></label>
-            <label for="date"><input id="date" name="date" type="datetime-local" min="2024-04-01T00:00" max="2024-12-31T00:00" name="date" id="dateInput" required></label>
-            <label for="location"><input id="location" name="location" type="text" placeholder="Ubicacion" required></label>
-            <label for="areaDescription"><textarea name="areaDescription" id="areaDescription" cols="30" rows="10" placeholder="Añade una description*" spellcheck="true" required></textarea></label>
-
-        </fieldset>
-        <fieldset>
-            <legend>Pago</legend>
-            <label for="cate">
-                <select name="cate" id="cate" required>
-                    <option value="pop">Pop</option>
-                    <option value="Reggaeton">Reggaeton</option>
-                    <option value="Jazz">Jazz</option>
-                    <option value="Rock">Rock</option>
-                </select>
-            </label>
+    <body class="row justify-content-center">
         
-            <label for="Free">
-                Gratuito<input type="radio" name="tipePay" id="Free">
-            </label>
+        <header>
+            <p class="h1 m-3">Formulario</p>
+        </header>
+        <main class="col-5">
+            <form action="" method="post">
 
-            <label for="Pay">
-                Pagos<input type="radio" name="tipePay" id="Pay">
-            </label>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        id="name"
+                        placeholder="Nombre"
+                    />
+                </div>
 
-            <label for="typePay">
-                <select name="typePay" id="typePay">
-                    <option value="Visa">Visa</option>
-                    <option value="Mastercard">Mastercard</option>
-                    <option value="Paypal">Paypal</option>
-                </select>
-            </label>
+                <div class="mb-3">
+                    <label for="dateTiem" class="form-label">Fecha</label>
+                    <input
+                        type="datetime-local"
+                        class="form-control"
+                        name="dateTiem"
+                        id="dateTiem"
+                        placeholder="Fecha"
+                        max="2024-12-31T00:00"
+                        min="2024-04-01T00:00"
+                    />
+                    
+                </div>
+                
+                <div class="mb-3">
+                    <label for="location" class="form-label">Localizacion</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="location"
+                        id="location"
+                        placeholder="Localizacion"
+                    />
+                    
+                </div>
+                
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descripcion</label>
+                    <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                </div>
 
-        </fieldset>
-        
+                <div class="mb-3">
+                    <label for="cate" class="form-label">Categoria</label>
+                    <select
+                        class="form-select form-select"
+                        name="cate"
+                        id="cate"
+                    >
+                        <option selected>Seleciona uno</option>
+                        <option value="pop">Pop</option>
+                        <option value="Reggaeton">Reggaeton</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Rock">Rock</option>
+                    </select>
+                </div>
 
-        <button type="submit">Crear Evento</button>
-        
-    </form>
-</body>
+                <div class="mb-3">
+                    <label for="tipePay" style="display: block;">Tipo de pago:</label>
+                    <div class="form-check form-check-inline">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="tipePay"
+                            id="free"
+                            value="{3:option1}"
+                        />
+                        <label class="form-check-label" for="free">Gratuito</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="tipePay"
+                            id="pay"
+                            value="option2"
+                        />
+                        <label class="form-check-label" for="pay">Pago</label>
+                    </div>
+                </div>
+
+                
+                
+                <div class="mb-3">
+                    <label for="mPay" class="form-label">Metodos de Pago</label>
+                    <select
+                        class="form-select form-select"
+                        name="mPay"
+                        id="mPay"
+                    >
+                        <option selected>Seleciona uno</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="Paypal">Paypal</option>
+                    </select>
+                </div>
+                
+
+
+
+
+
+
+
+
+
+
+
+                
+                
+                
+                
+            </form>
+
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>
