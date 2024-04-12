@@ -5,7 +5,7 @@ $username = 'root';
 $password = '';
 $dbname = 'usuarios';
 
-$conn = new msqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 
 if($conn-> connect_error){
@@ -17,24 +17,19 @@ $pass = $_POST['password'];
 
 
 $consulta = "SELECT * FROM usuarios WHERE username ='$nameUser'";
-$result = $conn-query($consulta);
+$result = $conn->query($consulta);
 
-if($result->num_rows == 1){
+if($result->num_rows > 0){
     $row = $result->fetch_assoc();
-    if(password_verify($pass, $row["password"])){
-        header("Location: index.html");
-        exit();
+    
+    if(password_verify($password, $row["password"])){
+        echo"bien";
     }else{
         echo"Pass mal";
     }
-
-
 }else{
-    echo "Usuario no encontrada"
+    echo "Usuario no encontrada";
 }
 
 $conn->close();
 ?>
-
-
-
