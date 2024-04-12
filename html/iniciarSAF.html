@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesion Administrador</title>
+</head>
+<body>
+    <header>
+        <h1>Iniciar sesion como Administrador</h1>
+        <h2>Si no eres administrador no deberias estar aqui, porfavor vuelva a la pagina principal</h2>
+    </header>
+    <main>
+        <form action="../php/iniciarSAF.php" method="post">
+            <label for="nombre">
+                <input type="text" id="nombre" name="nombre">
+            </label>
+            <label for="contra">
+                <input type="password" id="contra" name="contra">
+            </label>
+            <button type="submit">Iniciar</button>
+        </form>
+    </main>
+</body>
+</html>
