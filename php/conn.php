@@ -3,7 +3,7 @@
     function conectar() {
 
         $servername = "localhost";
-        $database = "comunidad";
+        $database = "zepelin";
         $username = "root";
         $password = "";
 
