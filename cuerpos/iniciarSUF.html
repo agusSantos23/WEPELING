@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../recursos/css/base.css">
+    <link rel="stylesheet" href="../recursos/css/decoracionUno.css">
+    <title>Usuario</title>
+</head>
+<body>
+    
+
+    <header>
+        <h1>WEPELINGS</h1>
+        <h2>Iniciar Sesion</h2>
+    </header>
+    <main>
+        <form action="../php/iniciarSUF.php" method="post">
+
+            <div class="inputs">
+                <label for="nombre">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                </label>
+
+                <label for="contra">
+                    <input type="password" id="contra" name="contra" placeholder="Contraseña">
+                </label>
+            </div>
+            
+            <button type="submit">Enviar</button>
+        </form>
+        
+    </main>
+    <aside>
+        <h3>Mensaje</h3>
+        <p>
+            Se ha producido un error si tu tiene un nombio no lo diga
+        </p> 
+    </aside>
+</body>
+</html>

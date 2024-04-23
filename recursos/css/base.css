@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Allan:wght@400;700&display=swap');
+
+
+
+body{
+    margin: 0;
+    background-color: #1c1c1c;
+    color: #fff;
+    text-align: center;
+    font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+
+}
+
+header{
+    width: 400px;
+    height: 130px;
+    position: absolute;
+    top: 6vh;
+    left: 10vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+h1{
+    width: 70%;
+    height: 54px;
+    margin: 0;
+    font-size: 4rem;
+    transition: .1s ease-in;
+}
+
+h1:hover{
+    border-bottom: 7px solid red;
+}
+
+h2{
+    width: 70%;
+    margin: 0;
+    font-size: 3rem;
+}
+
+main{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 25vh;
+    left: 10vw;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+aside{
+    width: 30vw;
+    position: absolute;
+    top: 6vh;
+    left: 35vw;
+}
+
+aside > h3{
+    margin: 0;
+    font-size: 2.7rem;
+    text-align: left;
+}
+
+aside > p {
+    margin: 0;
+    text-align: left;
+    font-size: 2rem;
+}
+
+form{
+    height: 40vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 8vh;
+    flex-direction: column;
+}
+form > .inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label > input{
+    font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+    background-color: transparent;
+    font-size: 2.3rem;
+    border: 0;
+    text-align: center;
+    color: #f4f4f4;
+    padding-right: 20px;
+}
+
+label > input::placeholder{
+    color: #fff;
+}
+
+
+form > button{
+    font-size: 2.8rem;
+    font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+    background-color: transparent;
+    color:#fff;
+    border: 0;
+    transition: .1s ease-in;
+    height: 45px;
+    cursor: pointer;
+}
+
+form > button:hover{
+    border-bottom: 7px solid red;
+
+}

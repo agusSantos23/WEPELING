@@ -1,0 +1,72 @@
+.r{
+    background-color: red;
+}
+
+.lineasI{
+    position: absolute;
+    height: 100vh;
+    width: 17vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fino{
+    height: 100%;
+    width: 30%;
+}
+
+.grueso{
+    height: 100%;
+    width: 60%;
+}
+
+.lineasD{
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    width: 17vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.luna{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+}
+
+.dirigible{
+    position: absolute;
+    right: 2vw;
+    top: 40vh;
+    animation: dirigibleA 60s ease-in-out infinite alternate-reverse 5s ;
+    transform: rotate(5deg);
+
+
+}
+
+@keyframes dirigibleA {
+    
+
+    25%{
+        right: 30vh;
+        top: 53vh;
+    }
+
+    50%{
+        right: 2vw;
+        top: 40vh;
+    }
+
+    75%{
+        right: 20vh;
+        top: 55vh;
+    }
+    
+
+}
+
+
