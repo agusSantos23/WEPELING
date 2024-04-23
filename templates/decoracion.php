@@ -10,6 +10,6 @@
         <div class="grueso r"></div>
     </div>
 
-    <img src="" alt="Luna" class="luna">
+    <img src="../img/luna.png" alt="Luna" class="luna">
 
-    <img src="" alt="Dirigible" class="dirigible">
+    <img src="../img/dirigible.png" alt="Dirigible" class="dirigible">
