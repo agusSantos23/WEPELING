@@ -63,11 +63,11 @@
 
             <div class="inputs">
                 <label for="nombre">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                 </label>
 
                 <label for="contra">
-                    <input type="password" id="contra" name="contra" placeholder="Contraseña">
+                    <input type="password" id="contra" name="contra" placeholder="Contraseña" required>
                 </label>
             </div>
             
@@ -81,5 +81,6 @@
             <?php echo $mensaje ?>
         </p> 
     </aside>
+    <?php include("../templates/footer.html") ?>
 </body>
 </html>

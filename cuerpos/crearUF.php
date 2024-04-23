@@ -18,8 +18,8 @@
     
         } else {
     
-            $consulta = "SELECT * FROM `usuario` WHERE nombre = '$nombre' OR mail = '$mail'";
-            $resultado = mysqli_query($conn, $consulta);
+            $sql = "SELECT * FROM `usuario` WHERE nombre = '$nombre' OR mail = '$mail'";
+            $resultado = mysqli_query($conn, $sql);
         
             if(mysqli_num_rows($resultado) > 0) {
 
@@ -31,8 +31,10 @@
                 $sql = "INSERT INTO usuario (nombre,PASSWORD,mail) VALUES ('$nombre','$contra_Hashed','$mail')";
         
                 if($conn->query($sql)){
-                        header("Location: iniciarSUF.php");
+
+                    header("Location: iniciarSUF.php");
                     exit();
+
                 } else {
                     echo "No Registrado " . $conn->error;
                 }
@@ -66,16 +68,16 @@
             
             <div class="inputs">
                 <label for="nombre">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" require>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                 </label>
     
                 <label for="email">
-                    <input type="email" id="email" name="email" placeholder="Correo" require>
+                    <input type="email" id="email" name="email" placeholder="Correo" required>
                 </label>
                 
     
                 <label for="contra">
-                    <input type="password" id="contra" name="contra" placeholder="Contraseña" require>
+                    <input type="password" id="contra" name="contra" placeholder="Contraseña" required>
                 </label>
             </div>
             
