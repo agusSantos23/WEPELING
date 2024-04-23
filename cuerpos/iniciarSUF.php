@@ -8,23 +8,34 @@
         $titulo = "Mensaje";
         $mensaje = "";
 
-        $nombre = $_POST['nombre'];
-        $contra = $_POST['contra'];
+        //Medida de seguridad para controlar caracteres especiales en consultas
+        $nombre = mysqli_real_escape_string($conn, $_POST['nombre']); 
+        $contra = $_POST['contra']; 
 
-
-        $consulta = "SELECT * FROM `usuario` WHERE nombre = '$nombre' && PASSWORD = '$contra'";
+        
+        $consulta = "SELECT * FROM `usuario` WHERE nombre = '$nombre'";
 
         $resultado = mysqli_query($conn,$consulta);
 
         if(mysqli_num_rows($resultado) > 0){
-            $mensaje = "si";
-        }else{
+            
+            $usuarioD = mysqli_fetch_assoc($resultado);
+            
+            //compara pass no cifrado con uno si cifrado
+            if(password_verify($contra, $usuarioD['PASSWORD'])){
 
-            $mensaje = "No se a encontrado ningun usuario.";
+                
+                $mensaje = "Usuario autenticado correctamente.";
+            } else {
+                
+                $mensaje = "Contraseña incorrecta.";
+            }
+        } else {
+            
+            $mensaje = "No se ha encontrado ningún usuario.";
         }
 
-        
-
+        $conn->close();
     }
 
     
@@ -43,7 +54,7 @@
     <?php include("../templates/decoracion.php"); ?>
 
     <header>
-        <h1>WEPELINGS</h1>
+        <h1><a href="../index.html">WEPELINGS</a></h1>
         <h2>Iniciar Sesion</h2>
     </header>
 

@@ -1,20 +1,6 @@
 <?php 
-
-    $servername = "localhost";
-    $database = "zepelin";
-    $username = "root";
-    $password = "";
-
-
-    try{
-
-        $conn = new mysqli($servername,$username,$password,$database);
-
-    }catch(Exception $e){
-
-        echo $e->getMessage();
-    }
-
+    include("../php/conn.php");
+    
     if($_POST){
 
         $titulo = "Mensaje";
@@ -24,30 +10,35 @@
         $mail = $_POST['email'];
         $contra = $_POST['contra'];
 
-        $consulta = "SELECT * FROM `usuario` WHERE nombre = '$nombre' OR mail = '$mail'";
+        
 
+        if(strlen($contra) < 8 || !preg_match('/[A-Z]/', $contra) || !preg_match('/[a-z]/', $contra)) {
 
-        $resultado = mysqli_query($conn, $consulta);
-
-        if(mysqli_num_rows($resultado) > 0) {
-
-            $mensaje = "Ya hay usuarios con ese nombre o correo registrados";
-
+            $mensaje = "La contraseña debe tener al menos 8 caracteres y contener al menos una letra mayúscula y una minúscula.";
+    
         } else {
-            
+    
+            $consulta = "SELECT * FROM `usuario` WHERE nombre = '$nombre' OR mail = '$mail'";
+            $resultado = mysqli_query($conn, $consulta);
+        
+            if(mysqli_num_rows($resultado) > 0) {
 
-            $contra_Hashed = password_hash($contra, PASSWORD_DEFAULT);
+                $mensaje = "Ya hay usuarios con ese nombre o correo registrados";
 
-            $sql = "INSERT INTO usuario (nombre,PASSWORD,mail) VALUES ('$nombre','$contra_Hashed','$mail')";
-
-            if($conn->query($sql)){
-                
-                $mensaje = "Si";
-            }else{
-
-                echo "No Registrado " . $conn->error;
+            } else {
+                $contra_Hashed = password_hash($contra, PASSWORD_DEFAULT);
+        
+                $sql = "INSERT INTO usuario (nombre,PASSWORD,mail) VALUES ('$nombre','$contra_Hashed','$mail')";
+        
+                if($conn->query($sql)){
+                        header("Location: iniciarSUF.php");
+                    exit();
+                } else {
+                    echo "No Registrado " . $conn->error;
+                }
             }
         }
+
 
         $conn->close();
 
@@ -67,7 +58,7 @@
 <body>
     <?php include("../templates/decoracion.php"); ?>
     <header>
-        <h1>WEPELINGS</h1>
+        <h1><a href="../index.html">WEPELINGS</a></h1>
         <h2>Creacion de usuario</h2>
     </header>
     <main>
@@ -75,16 +66,16 @@
             
             <div class="inputs">
                 <label for="nombre">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" require>
                 </label>
     
                 <label for="email">
-                    <input type="email" id="email" name="email" placeholder="Correo">
+                    <input type="email" id="email" name="email" placeholder="Correo" require>
                 </label>
                 
     
                 <label for="contra">
-                    <input type="password" id="contra" name="contra" placeholder="Contraseña">
+                    <input type="password" id="contra" name="contra" placeholder="Contraseña" require>
                 </label>
             </div>
             
