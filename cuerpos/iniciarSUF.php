@@ -1,6 +1,5 @@
 <?php
     
-
     include("../php/conn.php");
 
     if($_POST){
@@ -9,13 +8,13 @@
         $mensaje = "";
 
         //Medida de seguridad para controlar caracteres especiales en consultas
-        $nombre = mysqli_real_escape_string($conn, $_POST['nombre']); 
-        $contra = $_POST['contra']; 
+        $nombre = $conn->real_escape_string($_POST['nombre']);
+        $contra = $conn->real_escape_string($_POST['contra']);
 
         
-        $consulta = "SELECT * FROM `usuario` WHERE nombre = '$nombre'";
+        $sql = "SELECT * FROM `usuario` WHERE nombre = '$nombre'";
 
-        $resultado = mysqli_query($conn,$consulta);
+        $resultado = mysqli_query($conn,$sql);
 
         if(mysqli_num_rows($resultado) > 0){
             
@@ -30,9 +29,9 @@
                 
                 $mensaje = "Contraseña incorrecta.";
             }
-        } else {
+        } else { 
             
-            $mensaje = "No se ha encontrado ningún usuario.";
+            $mensaje = "No se ha encontrado ningún usuario. Puede recuperar la contraseña en el siguiente <a href=recuperarU.php>enlace</a>.";
         }
 
         $conn->close();
@@ -79,6 +78,7 @@
         <h3><?php echo $titulo ?></h3>
         <p>
             <?php echo $mensaje ?>
+            
         </p> 
     </aside>
     <?php include("../templates/footer.html") ?>
