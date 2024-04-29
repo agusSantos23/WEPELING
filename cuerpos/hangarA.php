@@ -1,6 +1,5 @@
 <?php
 
-include("../php/conn.php");
 
 ?>
 <!DOCTYPE html>

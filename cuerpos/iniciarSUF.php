@@ -23,7 +23,6 @@
             //compara pass no cifrado con uno si cifrado
             if(password_verify($contra, $usuarioD['PASSWORD'])){
 
-                
                 $mensaje = "Usuario autenticado correctamente.";
 
                 $_SESSION["user"] = $usuarioD['nombre'];
@@ -46,7 +45,7 @@
 
 ?>
 <?php include("../templates/headerO.php"); ?>
-    <?php include("../templates/decoracion.php"); ?>
+    <?php include("../templates/decoracionO.php"); ?>
 
     <header>
         <h1><a href="../index.php">WEPELINGS</a></h1>

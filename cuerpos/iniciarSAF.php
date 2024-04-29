@@ -25,7 +25,8 @@
 ?>
 
 <?php include("../templates/headerO.php"); ?>
-    <?php include("../templates/decoracion.php"); ?>
+    <?php include("../templates/decoracionO.php"); ?>
+
 
     <header>
         <h1><a href="../index.php">WEPELINGS</a></h1>

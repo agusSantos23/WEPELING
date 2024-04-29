@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/baseO.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/decoracionUno.css">
+    <link rel="stylesheet" href="./css/decoracionO.css">
 
     <title>Inicio</title>
 </head>
 <body>
 
 
-    <div class="lineasI">
+    <div id="lineasI">
         <div class="fino r"></div>
         <div class="grueso r"></div>
     </div>
 
-    <div class="lineasD">
+    <div id="lineasD">
         <div class="fino r"></div>
         <div class="grueso r"></div>
     </div>
 
-    <img src="./img/luna.png" alt="Luna" class="luna">
+    <img src="./img/luna.png" alt="Luna" id="luna">
 
     <img src="./img/dirigible.png" alt="Dirigible" class="dirigible">
 
