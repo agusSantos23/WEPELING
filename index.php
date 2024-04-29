@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/decoracionUno.css">
-    <link rel="stylesheet" href="./css/index.css">
 
     <title>Inicio</title>
 </head>
 <body>
+
 
     <div class="lineasI">
         <div class="fino r"></div>
@@ -52,9 +52,10 @@
             </section>
         </main>
         <aside>
-            <a href=""><img src="./svg/github.svg" alt="github"></a>
-            <a href=""><img src="./svg/mail.svg" alt="gmail"></a>
-            <a href=""><img src="./svg/linke.svg" alt="linkeding"></a>
+            <a href="https://github.com/agusSantos23" target="_blank"><img src="./svg/github.svg" alt="github"></a>
+            <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img src="./svg/linke.svg" alt="linkeding"></a>
+            <a href="https://agussantos.es/" target="_blank"><img src="./svg/hand.svg" alt="gmail"></a>
+
         </aside>
         <h4 class="copy">&copy;Agustin Prieto Atienza</h4>
     </footer>

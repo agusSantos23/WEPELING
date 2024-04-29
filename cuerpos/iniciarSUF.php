@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     include("../php/conn.php");
 
     if($_POST){
@@ -25,6 +25,11 @@
 
                 
                 $mensaje = "Usuario autenticado correctamente.";
+
+                $_SESSION["user"] = $usuarioD['nombre'];
+                $_SESSION["logueado"] = true;
+                header("Location: ./hangarU.php");
+
             } else {
                 
                 $mensaje = "Contraseña incorrecta.";
@@ -40,21 +45,11 @@
     
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/decoracionUno.css">
-    <title>Usuario</title>
-</head>
-<body>
+<?php include("../templates/headerO.php"); ?>
     <?php include("../templates/decoracion.php"); ?>
 
     <header>
-        <h1><a href="../index.html">WEPELINGS</a></h1>
+        <h1><a href="../index.php">WEPELINGS</a></h1>
         <h2>Iniciar Sesion</h2>
     </header>
 

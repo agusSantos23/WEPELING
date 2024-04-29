@@ -34,19 +34,10 @@
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/decoracionUno.css">
-    <title>Recuperar Usuario</title>
-</head>
-<body>
+<?php include("../templates/headerO.php"); ?>
     <?php include("../templates/decoracion.php"); ?>
     <header>
-        <h1><a href="../index.html">WEPELINGS</a></h1>
+        <h1><a href="../index.php">WEPELINGS</a></h1>
         <h2>Recuperar Usuario</h2>
     </header>
 
@@ -72,7 +63,7 @@
             <?php echo $mensaje ?>
         </p> 
     </aside>
-    <?php include("./templates/footer.html"); ?>
+    <?php include("../templates/footer.html"); ?>
 
 </body>
 </html>
