@@ -1,0 +1,37 @@
+footer{
+    position: absolute;
+    top: 100vh;
+    height: 205px;
+    background-color: #332f2c;
+    width: 98.8vw;
+}
+
+footer > main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20vw;
+    margin: 25px;
+
+}
+
+.enlacesF{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.6rem;
+}
+
+footer > aside {
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.copy{
+    font-size: 1.2rem;
+    margin: 0;
+}

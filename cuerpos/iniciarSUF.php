@@ -46,6 +46,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/decoracionUno.css">
     <title>Usuario</title>
 </head>
@@ -57,7 +58,7 @@
         <h2>Iniciar Sesion</h2>
     </header>
 
-    <main>
+    <main class="cuerpo">
         <form method="post">
 
             <div class="inputs">
@@ -74,11 +75,10 @@
         </form>
         
     </main>
-    <aside>
+    <aside class="mensaje">
         <h3><?php echo $titulo ?></h3>
         <p>
-            <?php echo $mensaje ?>
-            
+            <?php echo $mensaje ?>       
         </p> 
     </aside>
     <?php include("../templates/footer.html") ?>

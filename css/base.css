@@ -59,7 +59,7 @@ h2{
     font-size: 3rem;
 }
 
-main{
+.cuerpo{
     width: 400px;
     
     position: absolute;
@@ -70,20 +70,20 @@ main{
     gap: 30px;
 }
 
-aside{
+.mensaje{
     width: 30vw;
     position: absolute;
     top: 6vh;
     left: 35vw;
 }
 
-aside > h3{
+.mensaje > h3{
     margin: 0;
     font-size: 2.7rem;
     text-align: left;
 }
 
-aside > p {
+.mensaje > p {
     margin: 0;
     text-align: left;
     font-size: 2rem;

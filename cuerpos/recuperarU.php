@@ -50,7 +50,7 @@
         <h2>Recuperar Usuario</h2>
     </header>
 
-    <main>
+    <main class="cuerpo">
         <form method="post">
 
             <div class="inputs">
@@ -66,7 +66,7 @@
             <button type="submit">Enviar</button>
         </form>
     </main>
-    <aside>
+    <aside class="mensaje">
         <h3><?php echo $titulo ?></h3>
         <p>
             <?php echo $mensaje ?>

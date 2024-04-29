@@ -30,6 +30,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/decoracionUno.css">
     <title>Iniciar sesion Administrador</title>
 </head>
@@ -40,7 +41,7 @@
         <h1><a href="../index.html">WEPELINGS</a></h1>
         <h2>Administracion</h2>
     </header>
-    <main>
+    <main class="cuerpo">
         <form method="post">
             
             <label for="codigo">
@@ -49,5 +50,7 @@
             <button type="submit">Enviar</button>
         </form>
     </main>
+
+    <?php include("./templates/footer.html"); ?>
 </body>
 </html>

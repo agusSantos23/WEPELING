@@ -63,7 +63,7 @@
         <h1><a href="../index.html">WEPELINGS</a></h1>
         <h2>Creacion de usuario</h2>
     </header>
-    <main>
+    <main class="cuerpo">
         <form method="post">
             
             <div class="inputs">
@@ -86,7 +86,7 @@
         </form>
     </main>
 
-    <aside>
+    <aside class="mensaje">
         <h3><?php echo $titulo ?></h3>
         <p>
             <?php echo $mensaje ?>
