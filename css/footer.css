@@ -1,7 +1,7 @@
 footer{
     position: absolute;
     top: 100vh;
-    height: 205px;
+    height: 225px;
     background-color: #332f2c;
     width: 98.8vw;
 }
@@ -11,7 +11,7 @@ footer > main {
     justify-content: center;
     align-items: center;
     gap: 20vw;
-    margin: 25px;
+    margin: 30px;
 
 }
 
@@ -24,14 +24,14 @@ footer > main {
 
 footer > aside {
     position: absolute;
-    top: 25px;
-    left: 10px;
+    top: 35px;
+    left: 23px;
     display: flex;
     flex-direction: column;
 
 }
 
 .copy{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: 0;
 }
