@@ -18,7 +18,7 @@
     
         } else {
     
-            $sql = "SELECT * FROM `usuario` WHERE nombre = '$nombre' OR mail = '$mail'";
+            $sql = "SELECT * FROM Usuario WHERE Nombre = '$nombre' OR Correo_electronico = '$mail'";
             $resultado = mysqli_query($conn, $sql);
         
             if(mysqli_num_rows($resultado) > 0) {
@@ -28,7 +28,7 @@
             } else {
                 $contra_Hashed = password_hash($contra, PASSWORD_DEFAULT);
         
-                $sql = "INSERT INTO usuario (nombre,PASSWORD,mail) VALUES ('$nombre','$contra_Hashed','$mail')";
+                $sql = "INSERT INTO Usuario (Nombre,Password,Correo_electronico) VALUES ('$nombre','$contra_Hashed','$mail')";
         
                 if($conn->query($sql)){
 

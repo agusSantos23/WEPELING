@@ -12,6 +12,7 @@ footer > main {
     align-items: center;
     gap: 20vw;
     margin: 30px;
+    height: 133px;
 
 }
 
@@ -34,4 +35,6 @@ footer > aside {
 .copy{
     font-size: 1.3rem;
     margin: 0;
+    text-align: center;
+
 }

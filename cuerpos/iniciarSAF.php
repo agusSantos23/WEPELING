@@ -1,22 +1,27 @@
 <?php
+    session_start();
     include("../php/conn.php");
 
     if($_POST){
         
         $codigo = mysqli_real_escape_string($conn, $_POST['codigo']);
 
-        $sql = "SELECT * FROM `administrador` WHERE codigo = '$codigo'";
+        $sql = "SELECT * FROM Administrador WHERE Codigo = '$codigo'";
 
         $resultado = mysqli_query($conn, $sql);
 
         if(mysqli_num_rows($resultado) > 0){
 
-            echo "si";
+            $administradorD = mysqli_fetch_assoc($resultado);
+
+            $_SESSION["user"] = $administradorD['Nombre'];
+            $_SESSION["logueado"] = true;
+            header("Location: ./hangarCA.php");
+            exit();
 
         }else{
             
             header("Location: ../index.html");
-
             exit();
         }
 

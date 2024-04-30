@@ -12,13 +12,18 @@ a{
     text-decoration: none;
     color: #fff;
     text-align: center;
+    transition: .3s ease-in;
 }
 
 header{
     position: absolute;
-    top: 17px;
+    top: 4px;
     left: 50px;
-
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
 }
 
 header > div{
@@ -29,28 +34,232 @@ header > div{
 
 h1{
     margin: 0;
-    font-size: 3rem;
+    font-size: 4rem;
+    height: 66px;
 }
 
 h2{
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 100;
 }
 
-header > a {
-    font-size: 2rem;
+header > span{
     margin-left: 20px;
+    display: flex;
+    gap: 50px;
+}
+
+a {
+    font-size: 2rem;
 }
 
 
+a:hover{
+    scale: .90;
+}
 
 
+body > main{
+
+    position: absolute;
+    top: 24vh;
+    left: 45px;
+    width: 85vw;
+    height: 73vh;
+    
+}
+
+#hangar{
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    gap: 3vw;
+    flex-wrap: wrap;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.cards > div{
+    background-color: #111111;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.cards img{
+    width: 200px;
+    transition: .4s ease;
+}
+
+.cards img:hover{
+    scale: 1.5;
+}
+
+.cards button{
+    font-size: 1.5rem;
+    padding: 5px 20px;
+    border-radius: 50px;
+    color: #fff;
+    background-color: #111111;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: .3s ease-out ;
+}
+
+.cards button:hover{
+    border: 2px solid red;
+}
+
+#card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111111;
+    border-radius: 20px;
+    width: 250px;
+    height: 250px;
+}
+
+#card > img{
+    transition: .4s ease;
+    cursor: pointer;
+    scale: 1.4;
+}
 
 
+#card > img:hover{
+    scale: 1;
+}
 
 
+#formularioC{
+    position: absolute;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.800);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#formularioC > main{
+    position: relative;
+    width: 50vw;
+    height: 80vh;
+    background-color: #1c1c1c;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+#formularioC #Cerrar{
+    transform: rotate(45deg);
+    width: 100px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: .3s ease;
+    z-index: 2;
+}
+
+#formularioC #Cerrar:hover{
+    scale: .7;
+}
+
+#formularioC #engranaje{
+    
+    position: absolute;
+    right: -220px;
+    bottom: 0;
+    rotate: 20deg;
+    
+}
+
+#formularioC form{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 25vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+#formularioC #inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#formularioC input[type="text"]{
+
+    font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+    background-color: transparent;
+    font-size: 2rem;
+    border: 0;
+    text-align: center;
+    color: #f4f4f4;
+    padding-right: 10px;
+    
+}
+
+#Subir {
+    position: relative;
+    overflow: hidden;
+}
+
+#Subir input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+
+}
+
+#Subir button {
+    font-family: "Allan", Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    color: #f4f4f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+}
 
 
+#formularioC input::placeholder{
+    color: #fff;
+}
 
+#formularioC form > button{
+    font-size: 2.8rem;
+    font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+    background-color: transparent;
+    color:#fff;
+    border: 0;
+    transition: .1s ease-in;
+    height: 47px;
+    cursor: pointer;
+}
 
+#formularioC > button:hover{
+    border-bottom: 7px solid red;
+
+}

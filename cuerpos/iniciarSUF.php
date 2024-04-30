@@ -12,7 +12,7 @@
         $contra = $conn->real_escape_string($_POST['contra']);
 
         
-        $sql = "SELECT * FROM `usuario` WHERE nombre = '$nombre'";
+        $sql = "SELECT * FROM Usuario WHERE Nombre = '$nombre'";
 
         $resultado = mysqli_query($conn,$sql);
 
@@ -20,14 +20,14 @@
             
             $usuarioD = mysqli_fetch_assoc($resultado);
             
-            //compara pass no cifrado con uno si cifrado
-            if(password_verify($contra, $usuarioD['PASSWORD'])){
+            
+            if(password_verify($contra, $usuarioD['Password'])){
 
-                $mensaje = "Usuario autenticado correctamente.";
 
-                $_SESSION["user"] = $usuarioD['nombre'];
+                $_SESSION["user"] = $usuarioD['Nombre'];
                 $_SESSION["logueado"] = true;
                 header("Location: ./hangarU.php");
+                exit();
 
             } else {
                 
