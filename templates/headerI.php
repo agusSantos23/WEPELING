@@ -3,8 +3,8 @@
 
     if (isset($_SESSION["user"]) && $_SESSION["logueado"]) {    
         
-        $mensaje = ($nombreEnlace == "Escaparate") ? "Hangar de " . $_SESSION["user"] : "Escaparate";
-        $mensaje = ($nombreEnlace == "") ? "Administracion con " . $_SESSION["user"] : $mensaje;
+        $presentacion = ($nombreEnlace == "Escaparate") ? "Hangar de " . $_SESSION["user"] : "Escaparate";
+        $presentacion = ($nombreEnlace == "") ? "Administracion con " . $_SESSION["user"] : $presentacion;
 
     }else{
 
@@ -39,7 +39,7 @@
     <header>
         <div>
             <h1>WEPELINGS</h1>
-            <h2><?php echo $mensaje ?></h2>
+            <h2><?php echo $presentacion ?></h2>
         </div>
 
         <span>

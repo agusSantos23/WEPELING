@@ -1,7 +1,66 @@
 <?php
+
+    $titulo = "";
+    $mensaje = "";
+
+    if($_POST){
+
+        include("../php/conn.php");
+
+        //datos
+        $model = $_POST['model'];
+        $descripcion = $_POST['descripcion'];
+        $autonomia = $_POST['autonomia'];
+        $velocidad = $_POST['velocidad'];
+        $compartimento = $_POST['compartimento'];
+
+        $nameimagen=$_FILES['fileInput']['name'];
+        $tmpimagen=$_FILES['fileInput']['tmp_name'];
+        $ruta = 'uploads/'.$nameimagen;
+
+        if(is_uploaded_file($tmpimagen)) {
+
+            // Crea el directorio si no existe
+            if (!file_exists('uploads')) {
+                if(mkdir('uploads', 0755, true)){
+                    echo'creado';
+
+                }else{
+                    $error = error_get_last();
+                    echo 'Error al copiar el archivo: ' . $error['message']. "              ";
+                }
+            }
+
+
+            if (copy($tmpimagen, $ruta)) {
+                echo 'Éxito al copiar el archivo.';
+            } else {
+                $error = error_get_last();
+                echo 'Error al copiar el archivo: ' . $error['message'];
+            }
+            
+            
+            echo'Exito de archivo copiado';
+
+            $sql = "INSERT INTO Dirigibles (Modelo,Descripcion,Autonomia,Velocidad,Compartimento,Imagen) VALUES ('$model','$descripcion','$autonomia','$velocidad','$compartimento','$ruta')";
+
+            if($conn->query($sql)){
+                echo "Exito";
+            }else{
+                echo "fracaso";
+            }
+
+        }else{
+
+            echo "error de uploaded file";
+
+        }
+
+    }
+
+
     $direccion = "";
     $nombreEnlace = "";
-
 
     include("../templates/headerI.php");
 ?>
@@ -9,7 +68,7 @@
         <main>
             <img id="Cerrar" src="../svg/plus.svg" alt="cerrar">
             <img id="engranaje" src="../svg/gear.svg" alt="Engranaje">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
 
                 <div id="inputs">
                     <label for="model">
@@ -18,22 +77,33 @@
 
                     
                     <div id="Subir">
-                        <input type="file" id="fileInput" accept=".png">
+                        <input type="file" id="fileInput" name="fileInput" accept=".png">
                         <button onclick="document.getElementById('fileInput').click()">Seleccionar archivo</button>
                     </div>
                     
 
-                    <textarea name="descripcion" id="descripcion" cols="50" rows="10" required></textarea>
+                    <textarea name="descripcion" id="descripcion" cols="40" rows="7" placeholder="Este modelo se fabrico en ..." required></textarea>
 
-                    <div>
-                        <label for="Autonomia"><input type="number" required></label>
-                        <label for="Velocidad"><input type="number" required></label>
-                        <label for="Compartimento"><input type="number" required></label>
+                    <div id="Datos">
+                        <label for="autonomia">
+                            <input type="text" id="autonomia" name="autonomia" placeholder="Autonomia" required>
+                        </label>
+                        <label for="velocidad">
+                            <input type="text" id="velocidad" name="velocidad" placeholder="Velocidad" required>
+                        </label>
+                        <label for="compartimento">
+                            <input type="text" id="compartimento" name="compartimento" placeholder="Compartimento" required>
+                        </label>
                     </div>
                 </div>
 
-                <button type="submit">Subir</button>
+                <button type="submit">Guardar</button>
             </form>
+
+            <div id="Mensaje">
+                <h3><?php echo $titulo?></h3>
+                <p><?php echo $mensaje?></p>
+            </div>
         </main>
     </div>
     <?php include("../templates/decoracionI.php");?>

@@ -18,12 +18,17 @@ document.getElementById('fileInput').addEventListener('change', function() {
     // Cuando cambia el contenido del input de tipo file, se ejecuta esta función
     
     // Obtener el nombre del archivo seleccionado
-    var fileName = this.value.split('\\').pop();
+    const fileName = this.value.split('\\').pop();
     
     // Obtener el elemento del botón personalizado
-    var label = document.querySelector('#Subir button');
+    let label = document.querySelector("#Subir button");
     
     // Actualizar el texto del botón personalizado con el nombre del archivo seleccionado
-    label.textContent = fileName || 'Seleccionar archivo';
+    label.textContent = fileName || "Seleccionar archivo";
+
+    if(label.textContent == "Seleccionar archivo"){
+
+        console.log("sisisi");
+    }
 });
 
