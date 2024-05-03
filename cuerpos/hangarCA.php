@@ -2,10 +2,10 @@
 
     $titulo = "";
     $mensaje = "";
+    include("../php/conn.php");
 
     if($_POST){
 
-        include("../php/conn.php");
 
         //datos
         $model = $_POST['model'];
@@ -18,43 +18,63 @@
         $tmpimagen=$_FILES['fileInput']['tmp_name'];
         $ruta = 'uploads/'.$nameimagen;
 
-        if(is_uploaded_file($tmpimagen)) {
 
-            // Crea el directorio si no existe
-            if (!file_exists('uploads')) {
-                if(mkdir('uploads', 0755, true)){
-                    echo'creado';
-
-                }else{
-                    $error = error_get_last();
-                    echo 'Error al copiar el archivo: ' . $error['message']. "              ";
-                }
-            }
-
-
-            if (copy($tmpimagen, $ruta)) {
-                echo 'Éxito al copiar el archivo.';
-            } else {
-                $error = error_get_last();
-                echo 'Error al copiar el archivo: ' . $error['message'];
-            }
-            
-            
-            echo'Exito de archivo copiado';
-
-            $sql = "INSERT INTO Dirigibles (Modelo,Descripcion,Autonomia,Velocidad,Compartimento,Imagen) VALUES ('$model','$descripcion','$autonomia','$velocidad','$compartimento','$ruta')";
-
-            if($conn->query($sql)){
-                echo "Exito";
-            }else{
-                echo "fracaso";
-            }
-
+        if($_FILES['fileInput']['size'] > 50000){
+            $titulo = "Error";
+            $mensaje = 'El archivo es demasiado grande';
         }else{
 
-            echo "error de uploaded file";
+            if(is_uploaded_file($tmpimagen)) {
 
+                // Crea el directorio si no existe
+                if (!file_exists('uploads')) {
+                    mkdir('uploads', 0755, true);
+                }
+
+
+                if (copy($tmpimagen, $ruta)) {
+                    $titulo = "";
+                    $mensaje = 'Éxito al copiar el archivo.';
+                } else {
+                    $error = error_get_last();
+                    echo 'Error al copiar el archivo: ' . $error['message'];
+                }
+                
+                
+                
+
+                $sql = "INSERT INTO Dirigibles (Modelo,Descripcion,Autonomia,Velocidad,Compartimento,Imagen) VALUES ('$model','$descripcion','$autonomia','$velocidad','$compartimento','$ruta')";
+
+                if($conn->query($sql)){
+                    $titulo = "Exito";
+                    $mensaje = "El modelo de dirigible se subio correctamente";
+
+                }else{
+                    $titulo = "Error";
+                    $mensaje = "Se produjo un error al guardar el archivo en la base de datos";
+                }
+
+            }else{
+                $titulo = "Error:";
+                $mensaje = "Se produjo un error a la hora de cargar el archivo";
+
+            }
+            $conn->close();
         }
+
+
+    }
+
+    $sql = "SELECT * FROM Dirigibles";
+
+    $resultado = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($resultado) > 0){
+
+        $noEncontrado = "si";
+    }else{
+
+        $noEncontrado = "No se a encontrado ningun registro en la base de datos.";
 
     }
 
@@ -64,7 +84,7 @@
 
     include("../templates/headerI.php");
 ?>
-    <div id="formularioC" style="display: flex;">
+    <div id="formularioC" style="display: none;">
         <main>
             <img id="Cerrar" src="../svg/plus.svg" alt="cerrar">
             <img id="engranaje" src="../svg/gear.svg" alt="Engranaje">
@@ -109,6 +129,22 @@
     <?php include("../templates/decoracionI.php");?>
 
     <main id="hangar">
+
+        <div id="noEncontrado">
+            <?php echo $noEncontrado?>
+        </div>
+
+        <?php 
+            
+        
+        ?>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+                <h3>modelo123</h3>
+            </div>
+            <button>Eliminar</button>
+        </div>
         
         <div id="card">
             

@@ -91,9 +91,16 @@ body > main{
     height: 250px;
     width: 250px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: end;
     align-items: center;
     border-radius: 20px;
+}
+
+.cards h3{
+    margin: 10px 0;
+    font-size: 1.5rem;
 }
 
 .cards img{
@@ -147,8 +154,7 @@ body > main{
     z-index: 5;
     background-color: rgba(0, 0, 0, 0.800);
     height: 100vh;
-    width: 100vw;
-    display: flex;
+    width: 100vw; 
     justify-content: center;
     align-items: center;
 }
