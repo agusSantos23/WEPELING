@@ -30,7 +30,8 @@
         
                 $sql = "INSERT INTO Usuario (Nombre,Password,Correo_electronico) VALUES ('$nombre','$contra_Hashed','$mail')";
         
-                if($conn->query($sql)){
+                $resultado = mysqli_query($conn, $sql);
+                if($resultado){
 
                     header("Location: iniciarSUF.php");
                     exit();
