@@ -12,6 +12,116 @@
 
     <main id="hangar">
 
+        
+
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="../img/dirigible.png" alt="">
+            </div>
+            <button>Eliminar</button>
+        </div>
         <div class="cards">
             <div>
                 <img src="../img/dirigible.png" alt="">

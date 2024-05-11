@@ -16,14 +16,14 @@ a{
 }
 
 header{
-    position: absolute;
-    top: 4px;
-    left: 50px;
     
+    margin-left: 3vw;
+    margin-bottom: 33px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
+    
 }
 
 header > div{
@@ -44,7 +44,7 @@ h2{
     font-weight: 100;
 }
 
-header > span{
+header > nav{
     margin-left: 20px;
     display: flex;
     gap: 50px;
@@ -61,12 +61,13 @@ a:hover{
 
 
 body > main{
+    
 
-    position: absolute;
     top: 24vh;
-    left: 45px;
-    width: 85vw;
-    height: 73vh;
+    left: 75px;
+    width: 84vw;
+    padding: 70px;
+    min-height: 655px;
     
 }
 
@@ -88,12 +89,12 @@ body > main{
 
 .cards > div{
     background-color: #111111;
-    height: 250px;
-    width: 250px;
+    height: 275px;
+    width: 275px;
     display: flex;
     flex-direction: column;
     gap: 50px;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     border-radius: 20px;
 }

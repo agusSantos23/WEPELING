@@ -42,11 +42,11 @@
             <h2><?php echo $presentacion ?></h2>
         </div>
 
-        <span>
+        <nav>
             <a href="?cerrar_sesion=true">Cerrar Sesion</a>
             
             <a href="<?php echo $direccion ?>"><?php echo $nombreEnlace ?></a>
-        </span>
+        </nav>
             
         
 

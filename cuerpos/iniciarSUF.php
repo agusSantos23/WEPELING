@@ -23,7 +23,6 @@
             
             if(password_verify($contra, $usuarioD['Password'])){
 
-
                 $_SESSION["user"] = $usuarioD['Nombre'];
                 $_SESSION["logueado"] = true;
                 header("Location: ./hangarU.php");

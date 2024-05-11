@@ -41,14 +41,14 @@
     <footer>
         <main>
             <section class="enlacesF">
-                <a href="">Inicio</a>
-                <a href="">Administracion</a>
-                <a href="">Hangar</a>
+                <a href="#">Inicio</a>
+                <a href="./cuerpos/iniciarSAF.php">Administracion</a>
+                <a href="./cuerpos/hangarU.php">Hangar</a>
             </section>
             <section class="enlacesF">
-                <a href="">Iniciar Sesion</a>
-                <a href="">Crear Usuario</a>
-                <a href="">Recuperar Cuenta</a>
+                <a href="./cuerpos/iniciarSUF.php">Iniciar Sesion</a>
+                <a href="./cuerpos/crearUF.php">Crear Usuario</a>
+                <a href="./cuerpos/recuperarU.php">Recuperar Cuenta</a>
             </section>
         </main>
         <aside>
