@@ -72,10 +72,11 @@ body > main{
 }
 
 #hangar{
+    
     display: flex;
     justify-content: start;
-    align-items: baseline;
-    gap: 3vw;
+    align-items: flex-start;
+    gap: 50px;
     flex-wrap: wrap;
 }
 
@@ -89,22 +90,24 @@ body > main{
 
 .cards > div{
     background-color: #111111;
-    height: 275px;
+    height: 200px;
     width: 275px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    justify-content: center;
+    padding: 37px 0;
+    justify-content: space-between;
     align-items: center;
     border-radius: 20px;
 }
 
 .cards h3{
-    margin: 10px 0;
+    margin: 0;
     font-size: 1.5rem;
 }
 
 .cards img{
+    margin-top: 30px;
+
     width: 200px;
     transition: .4s ease;
 }
@@ -114,6 +117,7 @@ body > main{
 }
 
 .cards button{
+    
     font-size: 1.5rem;
     padding: 5px 20px;
     border-radius: 50px;
@@ -134,8 +138,8 @@ body > main{
     justify-content: center;
     background-color: #111111;
     border-radius: 20px;
-    width: 250px;
-    height: 250px;
+    width: 275px;
+    height: 275px;
 }
 
 #card > img{
@@ -152,6 +156,7 @@ body > main{
 
 #formularioC{
     position: absolute;
+    top: 0;
     z-index: 5;
     background-color: rgba(0, 0, 0, 0.800);
     height: 100vh;
@@ -239,6 +244,7 @@ body > main{
 }
 
 #Subir button {
+    
     width: 300px;
     padding: 5px 0;
     font-family: "Allan", Impact, 'Arial Narrow Bold', sans-serif;
@@ -288,6 +294,7 @@ body > main{
 
 
 #formularioC form > button{
+    display: none;
     font-size: 2.8rem;
     font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
     background-color: transparent;

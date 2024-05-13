@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
 
     $titulo = "";
     $mensaje = "";
@@ -7,7 +10,6 @@
     if($_POST){
 
 
-        //datos
         $model = $_POST['model'];
         $descripcion = $_POST['descripcion'];
         $autonomia = $_POST['autonomia'];
@@ -19,18 +21,16 @@
         $ruta = 'uploads/'.$nameimagen;
 
 
-        if($_FILES['fileInput']['size'] > 50000){
+        if($_FILES['fileInput']['size'] > 500000){
+
             $titulo = "Error";
             $mensaje = 'El archivo es demasiado grande';
+
         }else{
 
             if(is_uploaded_file($tmpimagen)) {
 
-                // Crea el directorio si no existe
-                if (!file_exists('uploads')) {
-                    mkdir('uploads', 0755, true);
-                }
-
+                
 
                 if (copy($tmpimagen, $ruta)) {
                     $titulo = "";
@@ -59,24 +59,15 @@
                 $mensaje = "Se produjo un error a la hora de cargar el archivo";
 
             }
-            $conn->close();
+            
         }
 
 
     }
 
-    $sql = "SELECT * FROM Dirigibles";
+    
 
-    $resultado = mysqli_query($conn, $sql);
-
-    if(mysqli_num_rows($resultado) > 0){
-
-        $noEncontrado = "si";
-    }else{
-
-        $noEncontrado = "No se a encontrado ningun registro en la base de datos.";
-
-    }
+    
 
 
     $direccion = "";
@@ -102,7 +93,7 @@
                     </div>
                     
 
-                    <textarea name="descripcion" id="descripcion" cols="40" rows="7" placeholder="Este modelo se fabrico en ..." required></textarea>
+                    <textarea name="descripcion" id="descripcion" cols="40" rows="7" maxlength="360" placeholder="Este modelo se fabrico en ..." required></textarea>
 
                     <div id="Datos">
                         <label for="autonomia">
@@ -117,34 +108,36 @@
                     </div>
                 </div>
 
-                <button type="submit">Guardar</button>
+                <button type="submit" id="submitBtn">Guardar</button>
             </form>
 
             <div id="Mensaje">
-                <h3><?php echo $titulo?></h3>
-                <p><?php echo $mensaje?></p>
+                <h3 id="tituloM"></h3>
+                <p id="contenidoM"></p>
             </div>
         </main>
     </div>
     <?php include("../templates/decoracionI.php");?>
 
     <main id="hangar">
-
-        <div id="noEncontrado">
-            <?php echo $noEncontrado?>
-        </div>
-
         <?php 
-            
-        
+            $sql = "SELECT * FROM Dirigibles";
+
+            $resultado = mysqli_query($conn, $sql);
+
+            foreach($resultado as $row) {
         ?>
-        <div class="cards">
-            <div>
-                <img src="../img/dirigible.png" alt="">
-                <h3>modelo123</h3>
+
+            <div class="cards" data-id="<?php echo $row['ID_dirigible']?>">
+                <div>
+                    <img src="<?php echo $row['Imagen'] ?>" alt="<?php echo $row['ID_dirigible']?>">
+                    <h3><?php echo $row['Modelo'] ?></h3>
+                </div>
+                <button class="btnEliminar">Eliminar</button>
             </div>
-            <button>Eliminar</button>
-        </div>
+
+        <?php }?>
+
         
         <div id="card">
             
@@ -156,6 +149,6 @@
     
 
     <?php include("../templates/footer.html"); ?>
-    <script src="../js/crearDirigible.js"></script>
+    <script src="../js/crdDirigible.js"></script>
 </body>
 </html>
