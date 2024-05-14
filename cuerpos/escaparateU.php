@@ -1,4 +1,15 @@
 <?php 
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    include("../php/conn.php");
+
+
+    
+
+
+
+
+
     $direccion = "./hangarU.php";
     $nombreEnlace = "Hangar";
     include("../templates/headerI.php") 
@@ -6,24 +17,39 @@
     
     <?php include("../templates/decoracionI.php");?>
 
-    <main>
-        <article>
-            <section>
-                <h2>Modelo del dirigible</h2>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatesdklfdfs</p>
-            </section>
-            <ul>
-                <li>Autonomia: 45 h</li>
-                <li>Velocidad: 80 km/h</li>
-                <li>Compartimento: 500 t</li>
-            </ul>
-        </article>
-        <aside>
+    <main id="Escaparate">
+        <?php 
+            $sql = "SELECT * FROM Dirigibles";
+            $resultado = mysqli_query($conn, $sql);
+        
 
-        </aside>
-        
-        
+            foreach($resultado as $row) {
+        ?>
+            <div id="<?php echo $row['ID_dirigible']?>" class="elementoCarrusel">
+                <article>
+                    <section>
+                        <h2><?php echo $row['Modelo'] ?></h2>
+                        <p><?php echo $row['Descripcion'] ?></p>
+                    </section>
+                    <ul>
+                        <li>Autonomia: <?php echo $row['Autonomia'] ?></li>
+                        <li>Velocidad: <?php echo $row['Velocidad'] ?></li>
+                        <li>Compartimento: <?php echo $row['Compartimento'] ?></li>
+                    </ul>
+                </article>
+                <aside id="carrusel" tabindex="0">
+                    
+                        <img src="../svg/arrow.svg" alt="flecha Arriba" class="normal svg" onclick="subir()">
+                        <img src="<?php echo $row['Imagen']?>" alt="dirigible" class="dirigible">
+                        <img src="../svg/arrow.svg" alt="flecha Abajo" class="invertido svg" onclick="bajar()">
+                        <img src="../svg/corazon.svg" alt="me gusta" class="corazon">
+                    
+                </aside>
+            </div>
+        <?php } ?>
     </main>
     <?php include("../templates/footer.html");?>
+    
+    <script src="../js/carrusel.js"></script>
 </body>
 </html>

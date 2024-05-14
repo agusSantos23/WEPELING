@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Allan:wght@400;700&display=swap');
 
+
 body{
     margin: 0;
     background-color: #1c1c1c;
@@ -7,6 +8,7 @@ body{
     
     font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
 }
+
 
 a{
     text-decoration: none;
@@ -18,7 +20,7 @@ a{
 header{
     
     margin-left: 3vw;
-    margin-bottom: 33px;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -40,7 +42,7 @@ h1{
 
 h2{
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 100;
 }
 
@@ -51,7 +53,7 @@ header > nav{
 }
 
 a {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 
@@ -66,12 +68,12 @@ body > main{
     top: 24vh;
     left: 75px;
     width: 84vw;
-    padding: 70px;
     min-height: 655px;
     
 }
 
 #hangar{
+    padding: 70px;
     
     display: flex;
     justify-content: start;
@@ -334,3 +336,99 @@ body > main{
 
 
 
+
+
+
+
+#Escaparate{
+    padding: 0 70px;
+    height: 82.5vh;
+
+    overflow: hidden;
+}
+
+#Escaparate .elementoCarrusel{
+    height: 80.5vh;
+    padding: 9.5px 0;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+#Escaparate article{
+    width: 30vw;
+}
+
+#Escaparate section{
+    margin-bottom: 10vh;
+}
+
+#Escaparate h2{
+    margin: 0;
+    font-size: 5rem;
+}
+
+#Escaparate p{
+    margin-top: 10px;
+    padding-left: 30px;
+    font-size: 1.7rem;
+}
+
+
+#Escaparate ul{
+    list-style-type: none; 
+    padding-left: 0; 
+}
+
+#Escaparate li{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#Escaparate li::before{
+    content: "--";
+    color: red;
+    margin-right: 5px;
+}
+
+
+#Escaparate aside{
+    position: relative;
+    width: 40vw;
+}
+
+
+#Escaparate .svg{
+    position: absolute;
+    right: 50%;
+    cursor: pointer;
+}
+
+
+#Escaparate .dirigible{
+    position: absolute;
+    transform: translate(50%, -50%);
+    right: 50%;
+    top: 50%;
+    width: 40vw;
+}
+
+#Escaparate .invertido{
+    transform: rotate(180deg);
+    bottom: 50px;
+}
+
+
+#Escaparate .corazon{
+    position: absolute;
+    bottom: 50px;
+
+}
+
+#Escaparate h3{
+
+    margin: 0;
+    text-align: center;
+    font-size: 2rem;
+}
