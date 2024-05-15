@@ -20,6 +20,7 @@
         $tmpimagen=$_FILES['fileInput']['tmp_name'];
         $ruta = 'uploads/'.$nameimagen;
 
+        $ID_administrador = $_SESSION['id'];
 
         if($_FILES['fileInput']['size'] > 500000){
 
@@ -29,7 +30,6 @@
         }else{
 
             if(is_uploaded_file($tmpimagen)) {
-
                 
 
                 if (copy($tmpimagen, $ruta)) {
@@ -39,11 +39,9 @@
                     $error = error_get_last();
                     echo 'Error al copiar el archivo: ' . $error['message'];
                 }
-                
-                
-                
 
-                $sql = "INSERT INTO Dirigibles (Modelo,Descripcion,Autonomia,Velocidad,Compartimento,Imagen) VALUES ('$model','$descripcion','$autonomia','$velocidad','$compartimento','$ruta')";
+
+                $sql = "INSERT INTO Dirigibles (Modelo,Descripcion,Autonomia,Velocidad,Compartimento,Imagen,ID_administrador) VALUES ('$model','$descripcion','$autonomia','$velocidad','$compartimento','$ruta','$ID_administrador')";
 
                 if($conn->query($sql)){
                     $titulo = "Exito";

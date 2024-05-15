@@ -54,6 +54,11 @@ h1:hover{
     border-bottom: 7px solid red;
 }
 
+.santos{
+    color: #e16529;
+    transition: .2s ease ;
+}
+
 h2{
     width: 100%;
     margin: 0;

@@ -27,7 +27,7 @@
     <img src="./img/dirigible.png" alt="Dirigible" class="dirigible">
 
     <header>
-        <h1>WEPELINGS</h1>
+        <h1>WEPELING<span>S</span></h1>
     </header>
 
     <main class="cuerpo">
@@ -59,5 +59,15 @@
         </aside>
         <h4 class="copy">&copy;Agustin Prieto Atienza</h4>
     </footer>
+
+    <script>
+        const titulo = document.querySelector("h1");
+        const letra = document.querySelector("span");
+
+        titulo.addEventListener("click",()=>{
+
+            letra.className = "santos";
+        });
+    </script>
 </body>
 </html>

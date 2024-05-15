@@ -42,7 +42,7 @@
     position: absolute;
     right: 2vw;
     top: 40vh;
-    animation: dirigibleA 60s ease-in-out infinite alternate-reverse 5s ;
+    animation: dirigibleA 50s ease-in-out infinite alternate-reverse 3s ;
     transform: rotate(5deg);
 
 
@@ -52,10 +52,11 @@
     
 
     25%{
-        right: 30vh;
+        right: 30vw;
         top: 53vh;
     }
 
+    
     50%{
         right: 2vw;
         top: 40vh;
