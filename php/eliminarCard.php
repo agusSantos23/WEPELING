@@ -9,14 +9,12 @@ if(isset($_POST['id'])) {
     $sql = "DELETE FROM Dirigibles WHERE ID_dirigible = '$id'";
 
     if(mysqli_query($conn, $sql)){
-        // Si la eliminación fue exitosa, devolver un mensaje de éxito
+        
         echo "Registro eliminado exitosamente.";
     } else{
         // Si hubo algún error en la consulta SQL, devolver un mensaje de error
         echo "ERROR: No se pudo ejecutar la consulta. " . mysqli_error($conn);
     }
 
-    // Cerrar la conexión
     mysqli_close($conn);
 } 
-?>

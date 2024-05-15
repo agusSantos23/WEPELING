@@ -358,11 +358,14 @@ body > main{
 
 #Escaparate article{
     width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5vh 0;
 }
 
-#Escaparate section{
-    margin-bottom: 10vh;
-}
+
 
 #Escaparate h2{
     margin: 0;
@@ -379,6 +382,7 @@ body > main{
 #Escaparate ul{
     list-style-type: none; 
     padding-left: 0; 
+    width: 100%;
 }
 
 #Escaparate li{
@@ -392,6 +396,14 @@ body > main{
     margin-right: 5px;
 }
 
+#Escaparate article>svg{
+    cursor: pointer;
+    fill: white;
+}
+
+#Escaparate .like{
+    fill: red;
+}
 
 #Escaparate aside{
     position: relative;
@@ -420,11 +432,7 @@ body > main{
 }
 
 
-#Escaparate .corazon{
-    position: absolute;
-    bottom: 50px;
 
-}
 
 #Escaparate h3{
 

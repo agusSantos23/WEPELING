@@ -15,7 +15,7 @@
             $administradorD = mysqli_fetch_assoc($resultado);
 
             $_SESSION["user"] = $administradorD['Nombre'];
-            $_SESSION["id"] = $administradorD['id'];
+            $_SESSION["id"] = $administradorD['ID_admin'];
             $_SESSION["logueado"] = true;
             header("Location: ./hangarCA.php");
             exit();

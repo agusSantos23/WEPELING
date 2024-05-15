@@ -2,10 +2,13 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-
     $titulo = "";
     $mensaje = "";
+    $direccion = "";
+    $nombreEnlace = "";
     include("../php/conn.php");
+
+    include("../templates/headerI.php");
 
     if($_POST){
 
@@ -68,10 +71,8 @@
     
 
 
-    $direccion = "";
-    $nombreEnlace = "";
+    
 
-    include("../templates/headerI.php");
 ?>
     <div id="formularioC" style="display: none;">
         <main>
