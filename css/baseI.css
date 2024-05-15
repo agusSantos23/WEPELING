@@ -396,14 +396,10 @@ body > main{
     margin-right: 5px;
 }
 
-#Escaparate article>svg{
+#Escaparate article>img{
     cursor: pointer;
-    fill: white;
 }
 
-#Escaparate .like{
-    fill: red;
-}
 
 #Escaparate aside{
     position: relative;

@@ -9,7 +9,6 @@ error_reporting(E_ALL);
         $idDirigible = $_POST["idDirigible"];
         $idUsuario = $_POST["idUsuario"];
 
-
         $sql = "INSERT INTO Hangares_de_Usuarios (ID_usuario,ID_dirigible) VALUES ('$idUsuario','$idDirigible')";
 
         if(mysqli_query($conn, $sql)){
@@ -19,5 +18,4 @@ error_reporting(E_ALL);
         }
 
         $conn->close();
-
     }
