@@ -10,22 +10,13 @@
     <?php include("../templates/decoracionI.php") ?>
 
 
-    <main id="hangar">
+    <main id="hangar" data-id="<?php echo $_SESSION['id'] ?>">
 
         
-
-        <div class="cards">
-            <div>
-                <img src="../img/dirigible.png" alt="">
-                <h3>modelo noseque</h3>
-            </div>
-            <button>Eliminar</button>
-        </div>
-        
-
     </main>
 
 
     <?php include("../templates/footer.html") ?>
+    <script src="../js/hangarU.js"></script>
 </body>
 </html>

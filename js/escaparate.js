@@ -6,6 +6,7 @@ const idUsuario = escaparate.getAttribute('data-id');
 const xhr = new XMLHttpRequest();
 xhr.open('GET', '../php/diri.php');
 xhr.onload = () => {
+    
     if (xhr.status === 200) {
         const dirigibles = JSON.parse(xhr.responseText);
 
@@ -50,17 +51,16 @@ xhr.onload = () => {
                     ul.appendChild(velocidadLi);
                     ul.appendChild(compartimentoLi);
 
-
+                    
+                    
                     const imgC = document.createElement('img');
-                    imgC.src = dirigiblesUsuario.includes(dirigible.ID_dirigible) ? '../svg/corazonR.svg' : '../svg/corazonW.svg';
+                    imgC.src = dirigiblesUsuario.some(hangar => hangar.ID_dirigible === dirigible.ID_dirigible) ? '../svg/corazonR.svg' : '../svg/corazonW.svg';
                     imgC.alt = 'liked';
                     imgC.classList.add('corazon');
-                    imgC.classList.add(dirigiblesUsuario.includes(dirigible.ID_dirigible) ? 'like' : null);
+                    dirigiblesUsuario.some(hangar => hangar.ID_dirigible === dirigible.ID_dirigible) && imgC.classList.add('like');
                     imgC.setAttribute('data-id', dirigible.ID_dirigible);
 
-                    
-
-                    
+           
                     const aside = document.createElement('aside'); 
                     aside.classList.add('carrusel');
 
@@ -102,6 +102,7 @@ xhr.onload = () => {
                 corazones.forEach( corazon => {
 
                     corazon.addEventListener('click',() => {
+                        
                         const dirigibleId = corazon.getAttribute('data-id');
                         const liked = corazon.classList.contains('like');
 
@@ -114,8 +115,11 @@ xhr.onload = () => {
                         xhrActualizarLike.onload = () => {
 
                             if (xhrActualizarLike.status === 200) {
-                                console.log(xhrActualizarLike.responseText);
-                                // Puedes manejar la respuesta del servidor aquí, por ejemplo, actualizando la interfaz de usuario si es necesario.
+                                
+
+                                corazon.classList.toggle('like');
+                                corazon.src = corazon.src.endsWith('corazonR.svg') ? '../svg/corazonW.svg' : '../svg/corazonR.svg';
+
                             } else {
                                 console.error('Error en la solicitud. Estado: ' + xhrActualizarLike.status);
                             }
@@ -138,63 +142,6 @@ xhr.onload = () => {
     }
 };
 xhr.send();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

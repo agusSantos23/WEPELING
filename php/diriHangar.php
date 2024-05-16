@@ -50,6 +50,7 @@ if (isset($_GET["idUsuario"]) || isset($_POST["idUsuario"])) {
 
             echo "ERROR: 'liked' no está definido";
         }
+
     } else {
 
         $sql = "SELECT * FROM Hangares_de_Usuarios WHERE ID_usuario = '$idUsuario'";
@@ -59,6 +60,7 @@ if (isset($_GET["idUsuario"]) || isset($_POST["idUsuario"])) {
         if ($resultado) {
 
             $rows = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+            
             echo json_encode($rows);
             
         } else {

@@ -16,6 +16,6 @@
     </main>
     <?php include("../templates/footer.html");?>
     
-    <script src="../js/carrusel.js"></script>
+    <script src="../js/escaparate.js"></script>
 </body>
 </html>
