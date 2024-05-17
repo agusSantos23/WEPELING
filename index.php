@@ -43,7 +43,8 @@
             <section class="enlacesF">
                 <a href="#">Inicio</a>
                 <a href="./cuerpos/iniciarSAF.php">Administracion</a>
-                <a href="./cuerpos/hangarU.php">Hangar</a>
+                <a href="./cuerpos/correoContacto.php">Contactar</a>
+
             </section>
             <section class="enlacesF">
                 <a href="./cuerpos/iniciarSUF.php">Iniciar Sesion</a>

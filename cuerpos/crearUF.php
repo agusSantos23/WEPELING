@@ -12,12 +12,8 @@
 
         
 
-        if(strlen($contra) < 8 || !preg_match('/[A-Z]/', $contra) || !preg_match('/[a-z]/', $contra)) {
+        if(strlen($contra) > 8 || preg_match('/[A-Z]/', $contra) || preg_match('/[a-z]/', $contra)) {
 
-            $mensaje = "La contraseña debe tener al menos 8 caracteres y contener al menos una letra mayúscula y una minúscula.";
-    
-        } else {
-    
             $sql = "SELECT * FROM Usuario WHERE Nombre = '$nombre' OR Correo_electronico = '$mail'";
             $resultado = mysqli_query($conn, $sql);
         
@@ -88,6 +84,25 @@
         </p>
     </aside>
     <?php include("../templates/footer.html"); ?>
+    <script>
+        const contra = document.getElementById("contra");
+        const h3 = document.querySelector("h3");
+        const p = document.querySelector("p");
 
+        contra.addEventListener('input', () => {
+            if (contra.value.length < 8 || !/[A-Z]/.test(contra.value) || !/[a-z]/.test(contra.value)) {
+                h3.textContent = "Mensaje";
+                p.textContent = "La contraseña debe tener al menos 8 caracteres y contener al menos una letra mayúscula y una minúscula.";
+                console.log(1)
+            } else {
+                console.log(2)
+                h3.textContent = "";
+                p.textContent = "";
+            }
+        })
+
+
+        
+    </script>
 </body>
 </html>

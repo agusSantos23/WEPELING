@@ -130,6 +130,20 @@ label > input::placeholder{
     color: #fff;
 }
 
+form > textarea {
+    font-family: "Allan", Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.4rem;
+    background-color: transparent;
+    border: 3px solid #f4f4f4;
+    color: #f4f4f4;
+    padding: 10px;
+    resize: none;
+    outline: none;
+    width: 80%;
+}
+
+
+
 form > button{
     font-size: 2.8rem;
     font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
@@ -143,5 +157,11 @@ form > button{
 
 form > button:hover{
     border-bottom: 7px solid red;
+
+}
+
+
+aside p > a{
+    border-bottom: 3px solid red;
 
 }

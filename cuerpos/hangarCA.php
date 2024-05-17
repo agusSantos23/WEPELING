@@ -46,7 +46,7 @@
 
                 $sql = "INSERT INTO Dirigibles (Modelo,Descripcion,Autonomia,Velocidad,Compartimento,Imagen,ID_administrador) VALUES ('$model','$descripcion','$autonomia','$velocidad','$compartimento','$ruta','$ID_administrador')";
 
-                if($conn->query($sql)){
+                if(mysqli_query($conn,$sql)){
                     $titulo = "Exito";
                     $mensaje = "El modelo de dirigible se subio correctamente";
 
