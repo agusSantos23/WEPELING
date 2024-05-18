@@ -1,14 +1,19 @@
 <?php
+    //Iniciar las variables de sesion
     session_start();
-
+    
+    //LLamar a los archivos de PHPMailer
     require "../PHPMailer/Exception.php";
     require "../PHPMailer/PHPMailer.php";
     require "../PHPMailer/SMTP.php";
 
-    include("../php/conn.php");
-
+    //Importamos la clase de PHPMailer
     use PHPMailer\PHPMailer\PHPMailer;
 
+    //Llamada a la bd
+    include("../php/conn.php");
+    
+    //Genera el codigo que sera enviado
     function generarCodigo($l = 6) {
         $digitos = '0123456789';
         $codigo = '';
@@ -18,31 +23,32 @@
         return $codigo;
     }
 
-
+    //Inicializamos las variables para que puedan ser asignados los mensajes
     $titulo = "Mensaje";
-    $mensaje = "Introduce el correo electronico asociado a la cuenta. Te llegara un correo electronico a la cuenta introducida con un codigo asociado.";
+    $mensaje = "Te llegara un correo electronico a la cuenta introducida con un codigo asociado.";
     $codigoGenerado;
  
-
+    //Si se a activado el metodo Post
     if($_POST){
 
-        $correoU = $conn->real_escape_string($_POST['email']);
+        //Recibe el valor del metodo post 
+        $correoU = $_POST['email'];
         
-
         $sql = "SELECT * FROM Usuario WHERE Correo_electronico = '$correoU'";
-
+        //Realiza la consulta a la bd
         $resultado = mysqli_query($conn, $sql);
             
 
         if(mysqli_num_rows($resultado) > 0){
-
+            //Asigna los datos del administrador de la primera fila que se encuentre
             $fila = mysqli_fetch_assoc($resultado);
+
             $_SESSION['id_usuario'] = $fila['ID_usuario'];
             $codigoGenerado = generarCodigo();
             $_SESSION['codigo_generado'] = $codigoGenerado;
 
 
-
+            //Contenido del correo
             $contenidoM = "
             <html>
                     
@@ -65,53 +71,62 @@
             </body>
             </html>";
 
-
+            //crear el objeto de PHPMailer
             $mail = new PHPMailer(true);
 
+            //Congigurar el mail
+            //Indica que el contenido del correo sera en formato HTML
             $mail->isHTML(true);
+            //Le indica que utilice el protocolo de SMTP
             $mail->isSMTP();
+            //indicamos el SMTP
             $mail->Host = 'smtp.dondominio.com';
+            //Indicar que SMTP es autorizado
             $mail->SMTPAuth = true;
+            //Encriptacion del SMTP
+            $mail->SMTPSecure = 'tls';
+            //Indicar el correo y contraseña de la cuenta que enviara el correo
             $mail->Username = 'administracion@agussantos.es';
             $mail->Password = '25822582AgusA@';
-            $mail->SMTPSecure = 'tls';
+            
+            //El puerto por el que se conectara al smtp
             $mail->Port = 587;
 
-
+            //Envio de Correo
             $mail->setFrom('administracion@agussantos.es', 'WEPELINGS Administracion');
+            //Destinatario
             $mail->addAddress($correoU, 'Destinatario');
+
+            // Contenido del correo
             $mail->Subject = 'Recuperacion de cuenta de usuario. CODIGO:' . $codigoGenerado;
             $mail->Body = $contenidoM;
                 
 
 
-
             if ($mail->send()) {
-
+                //Redirigir a la pagina de inicio de sesion
                 header('Location: updateCU.php');
+                //Asegurarse de que sale del documento
                 exit();
             
             } else {
+                //Destrulle la sesion inicializada
                 session_destroy();
+
                 $mensaje = "Hubo un error al enviar el correo electrónico. Por favor, Actualice la pagina e intentelo nuevamente o más tarde.";
             }
     
         }else{
+            
             $titulo = "Error";
             $mensaje = "No se ha encontrado ninguna cuenta asociada a ese correo electronico.";
         }
 
-      
-        
     }
-
     
-    
-
+    include("../templates/headerO.php");
+    include("../templates/decoracionO.php");
 ?>
-
-<?php include("../templates/headerO.php"); ?>
-    <?php include("../templates/decoracionO.php"); ?>
 
     <header>
         <h1><a href="../index.php">WEPELINGS</a></h1>

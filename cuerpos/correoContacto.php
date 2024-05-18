@@ -1,50 +1,60 @@
 <?php 
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    //LLamar a los archivos de PHPMailer
     require "../PHPMailer/Exception.php";
     require "../PHPMailer/PHPMailer.php";
     require "../PHPMailer/SMTP.php";
 
+    //Importamos la clase de PHPMailer
     use PHPMailer\PHPMailer\PHPMailer;
-
+    
+    //Inicializamos las variables para que puedan ser asignados los mensajes
     $titulo = "";
     $mensaje = "";
-    if($_POST){
 
+    //Si se a activado el metodo Post
+    if($_POST){
+        
+        //Asignar los valores enviados
         $nombre = $_POST['nombre'];
         $email = $_POST['email'];
         $contenido = $_POST['contenido'];
+        //crear el objeto de PHPMailer
         $mail = new PHPMailer(true);
 
+        //Congigurar el mail
+        //Indica que el contenido del correo sera en formato HTML
         $mail->isHTML(true);
+        //Le indica que utilice el protocolo de SMTP
         $mail->isSMTP();
-        $mail->Host = 'smtp.dondominio.com'; // Cambia esto por tu servidor SMTP
+        //indicamos el SMTP
+        $mail->Host = 'smtp.dondominio.com'; 
+        //Indicar que SMTP es autorizado
         $mail->SMTPAuth = true;
-        $mail->Username = 'administracion@agussantos.es'; // Cambia esto por tu correo
-        $mail->Password = '25822582AgusA@'; // Cambia esto por tu contraseña
+        //Indicar el correo y contraseña de la cuenta que enviara el correo
+        $mail->Username = 'administracion@agussantos.es'; 
+        $mail->Password = '25822582AgusA@'; 
+        //El puerto por el que se conectara al smtp
         $mail->Port = 587;
 
-        // Destinatarios
-        $mail->setFrom("administracion@agussantos.es", $nombre); // Cambia esto por tu correo y nombre
-        $mail->addAddress('administracion@agussantos.es'); // Cambia esto por el correo donde quieres recibir los mensajes
+        //Envio de Correo
+        $mail->setFrom("administracion@agussantos.es", $nombre); 
+        //Destinatario
+        $mail->addAddress('administracion@agussantos.es'); 
 
         // Contenido del correo
         $mail->Subject = 'Nuevo mensaje de contacto';
         $mail->Body    = "Nombre: $nombre<br>Correo: $email<br>Mensaje: $contenido";
         $mail->AltBody = "Nombre: $nombre\nCorreo: $email\nMensaje:\n$contenido";
 
+        //Enviar el correo y notificar al usurio
         $mail->send();
         $titulo = "Mensaje";
         $mensaje = 'El mensaje ha sido enviado';
     }
-    
-
+    // Llamar al encabezado y a la decoracion de la pagina
+    include("../templates/headerO.php");
+    include("../templates/decoracionO.php"); 
 ?>
-
-<?php include("../templates/headerO.php"); ?>
-<?php include("../templates/decoracionO.php"); ?>
-
-
 <header>
     <h1><a href="../index.php">WEPELINGS</a></h1>
     <h2>Formulario de Contacto</h2>
@@ -66,7 +76,7 @@
     </form>
 
 </main>
-
+<!--Mostrar Mensajes al usuario-->
 <aside class="mensaje">
         <h3><?php echo $titulo ?></h3>
         <p>

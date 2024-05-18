@@ -4,7 +4,7 @@
     if (isset($_SESSION["user"]) && $_SESSION["logueado"]) {    
         
         $presentacion = ($nombreEnlace == "Escaparate") ? "Hangar de " . $_SESSION["user"] : "Escaparate";
-        $presentacion = ($nombreEnlace == "") ? "Administracion con " . $_SESSION["user"] : $presentacion;
+        $presentacion = ($nombreEnlace == "") ? "Con " . $_SESSION["user"] : $presentacion;
 
     }else{
 
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="../css/baseI.css">
     <link rel="stylesheet" href="../css/footerI.css">
     <link rel="stylesheet" href="../css/decoracionI.css">
-    <title>Hangar</title>
+    <title>WEPELINGS-ADMINISTRACION</title>
 </head>
 <body>
     <header>

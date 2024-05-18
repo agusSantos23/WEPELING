@@ -1,28 +1,29 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
+//LLamada a la base de datos
 include("./conn.php");
 
+//Consulta
 $sql = "SELECT * FROM Dirigibles";
+//Ejecucion de la consulta
 $resultado = mysqli_query($conn, $sql);
 
+//Confirmacion de resultados
 if ($resultado) {
 
-    $dirigibles = array();
+    //Traspasa la respuesta de mysql a una varible
+    $dirigibles = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 
-    foreach ($resultado as $fila) {
-        $dirigibles[] = $fila;
-    }
-
+    //Devolver respuesta como json
     echo json_encode($dirigibles);
 
 } else {
 
+    //Mensaje de error
     echo "ERROR: No se pudieron obtener los dirigibles. " . mysqli_error($conn);
 
 }
 
+//Cerrar la conexion
 $conn->close();
 

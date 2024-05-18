@@ -1,20 +1,27 @@
 <?php
-if(isset($_POST['id'])) {
+    //LLamada a la base de datos
     include('./conn.php');
-    
 
-    $id = $_POST['id'];
-
-    // Consulta SQL para eliminar el registro
-    $sql = "DELETE FROM Dirigibles WHERE ID_dirigible = '$id'";
-
-    if(mysqli_query($conn, $sql)){
+    //Comprobar que ha llegado el valor enviado
+    if(isset($_POST['id'])) {
         
-        echo "Registro eliminado exitosamente.";
-    } else{
-        // Si hubo algún error en la consulta SQL, devolver un mensaje de error
-        echo "ERROR: No se pudo ejecutar la consulta. " . mysqli_error($conn);
-    }
+        //Guardar valor en una variable
+        $id = $_POST['id'];
 
-    mysqli_close($conn);
-} 
+        // Consulta SQL para eliminar el registro
+        $sql = "DELETE FROM Dirigibles WHERE ID_dirigible = '$id'";
+
+        //Ejecutar consulta
+        if(mysqli_query($conn, $sql)){
+            
+            echo "Registro eliminado exitosamente.";
+        } else{
+            
+            // Si hubo algún error en la consulta SQL, devolver un mensaje de error
+            echo "ERROR: No se pudo ejecutar la consulta. " . mysqli_error($conn);
+        }
+
+    } 
+    
+    //Cerrar la conexion
+    $conn->close();

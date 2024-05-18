@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/footerO.css">
     <link rel="stylesheet" href="../css/decoracionO.css">
 
-    <title>Inicio</title>
+    <title>WEPELINGS</title>
 </head>
 <body>
 

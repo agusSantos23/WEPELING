@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="./css/footerO.css">
     <link rel="stylesheet" href="./css/decoracionO.css">
 
-    <title>Inicio</title>
+    <title>WEPELING</title>
 </head>
 <body>
-
-
+    
     <div id="lineasI">
         <div class="fino r"></div>
         <div class="grueso r"></div>
@@ -62,9 +61,11 @@
     </footer>
 
     <script>
+        //Busqueda de etiquetas en el documento
         const titulo = document.querySelector("h1");
         const letra = document.querySelector("span");
 
+        //Agregar clase cuando titulo es clicado
         titulo.addEventListener("click",()=>{
 
             letra.className = "santos";

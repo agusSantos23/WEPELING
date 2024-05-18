@@ -1,493 +1,943 @@
 @import url('https://fonts.googleapis.com/css2?family=Allan:wght@400;700&display=swap');
 
-
-body{
-    margin: 0;
-    background-color: #1c1c1c;
-    color: #fff;
+@media screen and (min-width: 900px){
     
-    font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+    body{
+        margin: 0;
+        background-color: #1c1c1c;
+        color: #fff;
+        font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+    }
+
+    a{
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        transition: .3s ease-in;
+    }
+
+    header{
+        margin-left: 3vw;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        
+    }
+
+    header > div{
+        display: flex;
+        align-items: end;
+        gap: 30px;
+    }
+
+    h1{
+        margin: 0;
+        font-size: 4rem;
+        height: 66px;
+    }
+
+    h2{
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 100;
+    }
+
+    header > nav{
+        margin-left: 20px;
+        display: flex;
+        gap: 50px;
+    }
+
+    nav > a {
+        font-size: 2.5rem;
+    }
+
+
+    a:hover{
+        scale: .90;
+    }
+
+
+    body > main{
+        top: 24vh;
+        left: 75px;
+        width: 84vw;
+        min-height: 770px;
+    }
+
+    #hangar{
+        padding: 70px;
+        display: flex;
+        justify-content: start;
+        align-items: flex-start;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+
+    #vacio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        width: 50vw;
+        height: 60vh;
+        translate: 40% -35%;
+        background-color: #333;
+        border-radius: 20px;
+    }
+
+    #vacio h3{
+        font-size: 3rem;
+    }
+    #vacio p{
+        font-size: 2rem;
+        text-align: center;
+        padding: 0 50px;
+    }
+    #vacio img:first-child{
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: -50px;
+        left: 40px;
+        animation: rotarGearI 10s infinite;
+    }
+    #vacio img:last-child{
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 30px;
+        left: -47px;
+        animation: rotarGearD 10s infinite;
+    }
+
+    @keyframes rotarGearD {
+        16.66% { transform: rotate(0deg); }
+        33.33% { transform: rotate(60deg); }
+        50% { transform: rotate(120deg); }
+        66.67% { transform: rotate(180deg); }
+        83.34% { transform: rotate(240deg); }
+        100% { transform: rotate(300deg); }
+    }
+    @keyframes rotarGearI {
+        16.66% { transform: rotate(-0deg); }
+        33.33% { transform: rotate(-60deg); }
+        50% { transform: rotate(-120deg); }
+        66.67% { transform: rotate(-180deg); }
+        83.34% { transform: rotate(-240deg); }
+        100% { transform: rotate(-300deg); }
+    }
+
+    .cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .cards > div{
+        background-color: #111;
+        height: 200px;
+        width: 275px;
+        display: flex;
+        flex-direction: column;
+        padding: 37px 0;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px;
+    }
+
+    .cards h3{
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    .cards img{
+        margin-top: 30px;
+
+        width: 200px;
+        transition: .4s ease;
+    }
+
+    .cards img:hover{
+        scale: 1.5;
+    }
+
+    .cards button{
+        
+        font-size: 1.5rem;
+        padding: 5px 20px;
+        border-radius: 50px;
+        color: #fff;
+        background-color: #111;
+        border: 2px solid #fff;
+        cursor: pointer;
+        transition: .3s ease-out ;
+    }
+
+    .cards button:hover{
+        border: 2px solid red;
+    }
+
+    #card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #111;
+        border-radius: 20px;
+        width: 275px;
+        height: 275px;
+    }
+
+    #card > img{
+        transition: .4s ease;
+        cursor: pointer;
+        scale: 1.4;
+    }
+
+
+    #card > img:hover{
+        scale: 1;
+    }
+
+
+    #formularioC{
+        position: absolute;
+        top: 0;
+        z-index: 5;
+        background-color: rgba(0, 0, 0, 0.800);
+        height: 100vh;
+        width: 100vw; 
+        justify-content: center;
+        align-items: center;
+    }
+
+    #formularioC > main{
+        position: relative;
+        width: 50vw;
+        height: 80vh;
+        background-color: #1c1c1c;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 5px solid #f4f4f4;
+    }
+
+    #formularioC #Cerrar{
+        transform: rotate(45deg);
+        width: 100px;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        cursor: pointer;
+        transition: .3s ease;
+        z-index: 2;
+    }
+
+    #formularioC #Cerrar:hover{
+        scale: .7;
+    }
+
+    #formularioC #engranaje{
+        position: absolute;
+        right: -220px;
+        bottom: -150px;
+        rotate: 20deg;
+    }
+
+    #formularioC form{
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 25vw;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
+
+    #formularioC #inputs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    #formularioC #model{
+        width: 307px;
+        padding: 5px 10px 5px 0;
+        font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+        background-color: transparent;
+        font-size: 2rem;
+        border: 0;
+        color: #f4f4f4;
+        border: 2px solid #f4f4f4;
+        text-align: center; 
+    }
+
+    #Subir {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #Subir input[type="file"] {
+        display: none;
+    }
+
+    #Subir button {
+        width: 300px;
+        padding: 5px 0;
+        font-family: "Allan", Impact, 'Arial Narrow Bold', sans-serif;
+        font-size: 2rem;
+        background-color: transparent;
+        border: none;
+        color: #f4f4f4;
+        cursor: pointer;
+        outline: none;
+        border: 2px solid #f4f4f4;
+
+    }
+
+    #inputs > textarea {
+        font-family: "Allan", Impact, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.4rem;
+        background-color: transparent;
+        border: 3px solid #f4f4f4;
+        color: #f4f4f4;
+        padding: 10px;
+        resize: none;
+        outline: none;
+    }
+
+    #formularioC #Datos{
+        width: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    #Datos input{
+        width: 140px;
+        font-size: 1.4rem;
+        padding: 5px 0;
+        font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+        background-color: transparent;
+        border: 0;
+        color: #f4f4f4;
+        border: 2px solid #f4f4f4;
+        text-align: center;
+    }
+
+    #formularioC form > button{
+        display: none;
+        font-size: 2.8rem;
+        font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+        background-color: transparent;
+        color:#fff;
+        border: 0;
+        transition: .1s ease-in;
+        height: 47px;
+        cursor: pointer;
+    }
+
+    #formularioC > button:hover{
+        border-bottom: 7px solid red;
+    }
+
+    #formularioC #Mensaje{
+        width: 20vw;
+        height: 400px;
+        position: absolute;
+        top: 50px;
+        right: 40px;
+    }
+
+    #formularioC #Mensaje > h3{
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+    #formularioC #Mensaje > p {
+        margin: 0;
+        font-size: 1.5rem;
+        margin-left: 15px;
+    }
+
+    #Escaparate{
+        padding: 0 70px;
+        height: 82.5vh;
+        overflow: hidden;
+    }
+
+    #Escaparate .elementoCarrusel{
+        height: 80.5vh;
+        padding: 9.5px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #Escaparate article{
+        width: 30vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5vh 0;
+    }
+
+    #Escaparate h2{
+        margin: 0;
+        font-size: 5rem;
+    }
+
+    #Escaparate p{
+        margin-top: 10px;
+        padding-left: 30px;
+        font-size: 1.7rem;
+    }
+
+
+    #Escaparate ul{
+        list-style-type: none; 
+        padding-left: 0; 
+        width: 100%;
+    }
+
+    #Escaparate li{
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    #Escaparate li::before{
+        content: "--";
+        color: red;
+        margin-right: 5px;
+    }
+
+    #Escaparate article>img{
+        cursor: pointer;
+    }
+
+
+    #Escaparate aside{
+        position: relative;
+        width: 40vw;
+    }
+
+
+    #Escaparate .svg{
+        position: absolute;
+        right: 50%;
+        cursor: pointer;
+    }
+
+
+    #Escaparate .dirigible{
+        position: absolute;
+        transform: translate(50%, -50%);
+        right: 50%;
+        top: 50%;
+        width: 40vw;
+    }
+
+    #Escaparate .invertido{
+        transform: rotate(180deg);
+        bottom: 50px;
+    }
+
+
+    #Escaparate h3{
+        margin: 0;
+        text-align: center;
+        font-size: 2rem;
+    }
+
 }
 
 
-a{
-    text-decoration: none;
-    color: #fff;
-    text-align: center;
-    transition: .3s ease-in;
-}
-
-header{
+@media screen and (max-width: 900px){
     
-    margin-left: 3vw;
-    margin-bottom: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
-    
+    body{
+        margin: 0;
+        background-color: #1c1c1c;
+        color: #fff;
+        font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+    }
+
+    a{
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        transition: .3s ease-in;
+    }
+
+    header{
+        margin-left: 3vw;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        
+    }
+
+    header > div{
+        display: flex;
+        align-items: end;
+        gap: 20px;
+    }
+
+    h1{
+        margin: 0;
+        font-size:2rem;
+        height: 35px;
+    }
+
+    h2{
+        margin: 0;
+        font-size: 1.7rem;
+        font-weight: 100;
+    }
+
+    header > nav{
+        margin-left: 20px;
+        display: flex;
+        gap: 50px;
+    }
+
+    nav > a {
+        font-size: 1.5rem;
+    }
+
+
+    a:hover{
+        scale: .90;
+    }
+
+
+    body > main{
+        top: 24vh;
+        left: 75px;
+        width: 84vw;
+        min-height: 655px;
+    }
+
+    #hangar{
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+
+    #vacio{
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        width: 80vw;
+        height: 50vh;
+        translate: 50% -35%;
+        background-color: #333;
+        border-radius: 20px;
+    }
+
+    #vacio h3{
+        margin: 0;
+        font-size: 1.6rem;
+    }
+    #vacio p{
+        margin: 0;
+        font-size: 1.3rem;
+        text-align: center;
+        padding: 0 20px;
+    }
+    #vacio img:first-child{
+        width: 55px;
+        height: 55px;
+        position: absolute;
+        top: -20px;
+        left: 15px;
+        animation: rotarGearI 10s infinite;
+    }
+    #vacio img:last-child{
+        width: 55px;
+        height: 55px;
+        position: absolute;
+        top: 10px;
+        left: -17px;
+        animation: rotarGearD 10s infinite;
+    }
+
+    @keyframes rotarGearD {
+        16.66% { transform: rotate(0deg); }
+        33.33% { transform: rotate(60deg); }
+        50% { transform: rotate(120deg); }
+        66.67% { transform: rotate(180deg); }
+        83.34% { transform: rotate(240deg); }
+        100% { transform: rotate(300deg); }
+    }
+    @keyframes rotarGearI {
+        16.66% { transform: rotate(-0deg); }
+        33.33% { transform: rotate(-60deg); }
+        50% { transform: rotate(-120deg); }
+        66.67% { transform: rotate(-180deg); }
+        83.34% { transform: rotate(-240deg); }
+        100% { transform: rotate(-300deg); }
+    }
+
+    .cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .cards > div{
+        background-color: #111;
+        height: 200px;
+        width: 275px;
+        display: flex;
+        flex-direction: column;
+        padding: 37px 0;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px;
+    }
+
+    .cards h3{
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    .cards img{
+        margin-top: 30px;
+
+        width: 200px;
+        transition: .4s ease;
+    }
+
+    .cards img:hover{
+        scale: 1.5;
+    }
+
+    .cards button{
+        
+        font-size: 1.5rem;
+        padding: 5px 20px;
+        border-radius: 50px;
+        color: #fff;
+        background-color: #111;
+        border: 2px solid #fff;
+        cursor: pointer;
+        transition: .3s ease-out ;
+    }
+
+    .cards button:hover{
+        border: 2px solid red;
+    }
+
+    #card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #111;
+        border-radius: 20px;
+        width: 275px;
+        height: 275px;
+    }
+
+    #card > img{
+        transition: .4s ease;
+        cursor: pointer;
+        scale: 1.4;
+    }
+
+
+    #card > img:hover{
+        scale: 1;
+    }
+
+
+    #formularioC{
+        position: absolute;
+        top: 0;
+        z-index: 5;
+        background-color: rgba(0, 0, 0, 0.800);
+        height: 100vh;
+        width: 100vw; 
+        justify-content: center;
+        align-items: center;
+    }
+
+    #formularioC > main{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        width: 90vw;
+        height: 80vh;
+        background-color: #1c1c1c;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 5px solid #f4f4f4;
+    }
+
+    #formularioC #Cerrar{
+        transform: rotate(45deg);
+        width: 50px;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        cursor: pointer;
+        transition: .3s ease;
+        z-index: 2;
+    }
+
+    #formularioC #Cerrar:hover{
+        scale: .7;
+    }
+
+    #formularioC #engranaje{
+        display: none;
+        position: absolute;
+        right: -220px;
+        bottom: -150px;
+        rotate: 20deg;
+    }
+
+    #formularioC form{
+        
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+
+    #formularioC #inputs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #formularioC #model{
+        width: 100%;
+        padding: 5px 5px 5px 0;
+        font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+        background-color: transparent;
+        font-size: 1.2rem;
+        border: 0;
+        color: #f4f4f4;
+        border: 2px solid #f4f4f4;
+        text-align: center; 
+    }
+
+    #Subir {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #Subir input[type="file"] {
+        display: none;
+    }
+
+    #Subir button {
+        width: 300px;
+        padding: 5px 0;
+        font-family: "Allan", Impact, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.2rem;
+        background-color: transparent;
+        border: none;
+        color: #f4f4f4;
+        cursor: pointer;
+        outline: none;
+        border: 2px solid #f4f4f4;
+
+    }
+
+    #inputs > textarea {
+        font-family: "Allan", Impact, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.2rem;
+        background-color: transparent;
+        border: 3px solid #f4f4f4;
+        color: #f4f4f4;
+        padding: 10px;
+        resize: none;
+        outline: none;
+
+        width: 70%;
+    }
+
+    #formularioC #Datos{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    #Datos input{
+        width: 140px;
+        font-size: 1.2rem;
+        padding: 5px 0;
+        font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+        background-color: transparent;
+        border: 0;
+        color: #f4f4f4;
+        border: 2px solid #f4f4f4;
+        text-align: center;
+    }
+
+    #formularioC form > button{
+        padding-top: 10px ;
+        display: none;
+        font-size: 2rem;
+        font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
+        background-color: transparent;
+        color:#fff;
+        border: 0;
+        transition: .1s ease-in;
+        height: 47px;
+        cursor: pointer;
+    }
+
+    #formularioC > button:hover{
+        border-bottom: 7px solid red;
+    }
+
+    #formularioC #Mensaje{
+        width: 100%;
+        padding-left: 5px;
+    }
+
+    #formularioC #Mensaje > h3{
+        font-size: 1.7rem;
+        margin: 0;
+    }
+
+    #formularioC #Mensaje > p {
+        margin: 0;
+        font-size: 1rem;
+        margin-left: 15px;
+    }
+
+    #Escaparate{
+        padding: 0 10px;
+        height: 82.5vh;
+        overflow: hidden;
+    }
+
+    #Escaparate .elementoCarrusel{
+        height: 80.5vh;
+        padding-bottom: 40px ;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #Escaparate article{
+        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
+    #Escaparate h2{
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    #Escaparate p{
+        margin-top: 10px;
+        padding-left: 10px;
+        font-size: 1rem;
+    }
+
+
+    #Escaparate ul{
+        list-style-type: none; 
+        padding-left: 0; 
+        width: 100%;
+    }
+
+    #Escaparate li{
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    #Escaparate li::before{
+        content: "--";
+        color: red;
+        margin-right: 5px;
+    }
+
+    #Escaparate article>img{
+        cursor: pointer;
+    }
+
+
+    #Escaparate aside{
+        position: relative;
+        width: 40vw;
+        height: 40vh;
+    }
+
+
+    #Escaparate .svg{
+        position: absolute;
+        right: 50%;
+        cursor: pointer;
+        translate: 50% 50%;
+    }
+
+
+    #Escaparate .dirigible{
+        position: absolute;
+        transform: translate(50%, -50%);
+        right: 50%;
+        top: 50%;
+        width: 40vw;
+    }
+
+    #Escaparate .invertido{
+        transform: rotate(180deg);
+        bottom: 50px;
+    }
+
+
+    #Escaparate h3{
+        margin: 0;
+        text-align: center;
+        font-size: 2rem;
+    }
+
 }
-
-header > div{
-    display: flex;
-    align-items: end;
-    gap: 30px;
-}
-
-h1{
-    margin: 0;
-    font-size: 4rem;
-    height: 66px;
-}
-
-h2{
-    margin: 0;
-    font-size: 3rem;
-    font-weight: 100;
-}
-
-header > nav{
-    margin-left: 20px;
-    display: flex;
-    gap: 50px;
-}
-
-nav > a {
-    font-size: 2.5rem;
-}
-
-
-a:hover{
-    scale: .90;
-}
-
-
-body > main{
-    
-
-    top: 24vh;
-    left: 75px;
-    width: 84vw;
-    min-height: 655px;
-    
-}
-
-#hangar{
-    padding: 70px;
-    
-    display: flex;
-    justify-content: start;
-    align-items: flex-start;
-    gap: 50px;
-    flex-wrap: wrap;
-}
-
-
-#vacio{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    right: 50%;
-    top: 50%;
-    width: 50vw;
-    height: 60vh;
-    translate: 40% -35%;
-    background-color: #333;
-    border-radius: 20px;
-}
-
-#vacio h3{
-    font-size: 3rem;
-}
-#vacio p{
-    font-size: 2rem;
-    text-align: center;
-    padding: 0 50px;
-}
-#vacio img:first-child{
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: -50px;
-    left: 40px;
-    animation: rotarGearI 10s infinite;
-}
-#vacio img:last-child{
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: 30px;
-    left: -47px;
-    animation: rotarGearD 10s infinite;
-
-}
-
-@keyframes rotarGearD {
-    16.66% { transform: rotate(0deg); }
-    33.33% { transform: rotate(60deg); }
-    50% { transform: rotate(120deg); }
-    66.67% { transform: rotate(180deg); }
-    83.34% { transform: rotate(240deg); }
-    100% { transform: rotate(300deg); }
-}
-@keyframes rotarGearI {
-    16.66% { transform: rotate(-0deg); }
-    33.33% { transform: rotate(-60deg); }
-    50% { transform: rotate(-120deg); }
-    66.67% { transform: rotate(-180deg); }
-    83.34% { transform: rotate(-240deg); }
-    100% { transform: rotate(-300deg); }
-}
-
-.cards{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-}
-
-.cards > div{
-    background-color: #111;
-    height: 200px;
-    width: 275px;
-    display: flex;
-    flex-direction: column;
-    padding: 37px 0;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 20px;
-}
-
-.cards h3{
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.cards img{
-    margin-top: 30px;
-
-    width: 200px;
-    transition: .4s ease;
-}
-
-.cards img:hover{
-    scale: 1.5;
-}
-
-.cards button{
-    
-    font-size: 1.5rem;
-    padding: 5px 20px;
-    border-radius: 50px;
-    color: #fff;
-    background-color: #111;
-    border: 2px solid #fff;
-    cursor: pointer;
-    transition: .3s ease-out ;
-}
-
-.cards button:hover{
-    border: 2px solid red;
-}
-
-#card{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #111;
-    border-radius: 20px;
-    width: 275px;
-    height: 275px;
-}
-
-#card > img{
-    transition: .4s ease;
-    cursor: pointer;
-    scale: 1.4;
-}
-
-
-#card > img:hover{
-    scale: 1;
-}
-
-
-#formularioC{
-    position: absolute;
-    top: 0;
-    z-index: 5;
-    background-color: rgba(0, 0, 0, 0.800);
-    height: 100vh;
-    width: 100vw; 
-    justify-content: center;
-    align-items: center;
-}
-
-#formularioC > main{
-    position: relative;
-    width: 50vw;
-    height: 80vh;
-    background-color: #1c1c1c;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 5px solid #f4f4f4;
-
-}
-
-#formularioC #Cerrar{
-    transform: rotate(45deg);
-    width: 100px;
-    position: absolute;
-    top: 0px;
-    right: 10px;
-    cursor: pointer;
-    transition: .3s ease;
-    z-index: 2;
-}
-
-#formularioC #Cerrar:hover{
-    scale: .7;
-}
-
-#formularioC #engranaje{
-    
-    position: absolute;
-    right: -220px;
-    bottom: -150px;
-    rotate: 20deg;
-    
-}
-
-#formularioC form{
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 25vw;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-}
-
-#formularioC #inputs{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    
-}
-
-#formularioC #model{
-    width: 307px;
-    padding: 5px 10px 5px 0;
-    font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
-    background-color: transparent;
-    font-size: 2rem;
-    border: 0;
-    color: #f4f4f4;
-    border: 2px solid #f4f4f4;
-    text-align: center; 
-}
-
-#Subir {
-    position: relative;
-    overflow: hidden;
-}
-
-#Subir input[type="file"] {
-    display: none;
-}
-
-#Subir button {
-    
-    width: 300px;
-    padding: 5px 0;
-    font-family: "Allan", Impact, 'Arial Narrow Bold', sans-serif;
-    font-size: 2rem;
-    background-color: transparent;
-    border: none;
-    color: #f4f4f4;
-    cursor: pointer;
-    outline: none;
-    border: 2px solid #f4f4f4;
-
-}
-
-#inputs > textarea {
-    font-family: "Allan", Impact, 'Arial Narrow Bold', sans-serif;
-    font-size: 1.4rem;
-    background-color: transparent;
-    border: 3px solid #f4f4f4;
-    color: #f4f4f4;
-    padding: 10px;
-    resize: none;
-    outline: none;
-}
-
-#formularioC #Datos{
-    width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    
-}
-
-#Datos input{
-    width: 140px;
-    font-size: 1.4rem;
-    padding: 5px 0;
-    font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
-    background-color: transparent;
-    border: 0;
-    color: #f4f4f4;
-
-    border: 2px solid #f4f4f4;
-    text-align: center;
-}
-
-
-#formularioC form > button{
-    display: none;
-    font-size: 2.8rem;
-    font-family: "Allan",Impact, 'Arial Narrow Bold', sans-serif;
-    background-color: transparent;
-    color:#fff;
-    border: 0;
-    transition: .1s ease-in;
-    height: 47px;
-    cursor: pointer;
-}
-
-#formularioC > button:hover{
-    border-bottom: 7px solid red;
-
-}
-
-#formularioC #Mensaje{
-    width: 20vw;
-    height: 400px;
-    position: absolute;
-    top: 50px;
-    right: 40px;
-}
-
-#formularioC #Mensaje > h3{
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-#formularioC #Mensaje > p {
-    margin: 0;
-    font-size: 1.5rem;
-    margin-left: 15px;
-}
-
-
-
-#Escaparate{
-    padding: 0 70px;
-    height: 82.5vh;
-
-    overflow: hidden;
-}
-
-#Escaparate .elementoCarrusel{
-    height: 80.5vh;
-    padding: 9.5px 0;
-    display: flex;
-    justify-content: space-between;
-    
-}
-
-
-#Escaparate article{
-    width: 30vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5vh 0;
-}
-
-
-
-#Escaparate h2{
-    margin: 0;
-    font-size: 5rem;
-}
-
-#Escaparate p{
-    margin-top: 10px;
-    padding-left: 30px;
-    font-size: 1.7rem;
-}
-
-
-#Escaparate ul{
-    list-style-type: none; 
-    padding-left: 0; 
-    width: 100%;
-}
-
-#Escaparate li{
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-#Escaparate li::before{
-    content: "--";
-    color: red;
-    margin-right: 5px;
-}
-
-#Escaparate article>img{
-    cursor: pointer;
-}
-
-
-#Escaparate aside{
-    position: relative;
-    width: 40vw;
-}
-
-
-#Escaparate .svg{
-    position: absolute;
-    right: 50%;
-    cursor: pointer;
-}
-
-
-#Escaparate .dirigible{
-    position: absolute;
-    transform: translate(50%, -50%);
-    right: 50%;
-    top: 50%;
-    width: 40vw;
-}
-
-#Escaparate .invertido{
-    transform: rotate(180deg);
-    bottom: 50px;
-}
-
-
-#Escaparate h3{
-
-    margin: 0;
-    text-align: center;
-    font-size: 2rem;
-}
-
-
 
 
 

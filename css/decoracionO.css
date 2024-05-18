@@ -1,3 +1,5 @@
+
+@media screen and (min-width: 1140px){
 .r{
     background-color: red;
 }
@@ -40,6 +42,7 @@
 
 .dirigible{
     position: absolute;
+    width: 50vw;
     right: 2vw;
     top: 40vh;
     animation: dirigibleA 50s ease-in-out infinite alternate-reverse 3s ;
@@ -69,5 +72,80 @@
     
 
 }
+}
 
+@media screen and (max-width: 1140px){
+    .r{
+        background-color: red;
+    }
+    
+    #lineasI{
+        position: absolute;
+        height: 100vh;
+        width: 8.7vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .fino{
+        height: 100%;
+        width: 30%;
+    }
+    
+    .grueso{
+        height: 100%;
+        width: 60%;
+    }
+    
+    #lineasD{
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        width: 8.7vw;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+    
+    #luna{
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        bottom: 15vh;
+        left: 0;
+    }
+    
+    .dirigible{
+        position: absolute;
+        width: 50vw;
+        right: 2vw;
+        top: 40vh;
+        animation: dirigibleA 50s ease-in-out infinite alternate-reverse 3s ;
+        transform: rotate(5deg);
+    
+    
+    }
+    
+    @keyframes dirigibleA {
+        
+    
+        25%{
+            right: 30vw;
+            top: 53vh;
+        }
+    
+        
+        50%{
+            right: 2vw;
+            top: 40vh;
+        }
+    
+        75%{
+            right: 20vh;
+            top: 55vh;
+        }
+        
+    
+    }
+    }
 

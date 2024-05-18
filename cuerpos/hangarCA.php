@@ -1,51 +1,62 @@
 <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-
+    //Inicializamos las variables para que puedan ser asignados los mensajes
     $titulo = "";
     $mensaje = "";
+
+    //No se le indica nada ya que en el header se encuentra la condicion para decidir cual de los dos enlaces sera
     $direccion = "";
     $nombreEnlace = "";
-    include("../php/conn.php");
 
+    //Conexion a la bd
+    include("../php/conn.php");
+    //Llamada al encabezado
     include("../templates/headerI.php");
 
+    //Si se activa el metodo POST
     if($_POST){
-
-
+        //Recibe los datos del metodo POST
         $model = $_POST['model'];
         $descripcion = $_POST['descripcion'];
         $autonomia = $_POST['autonomia'];
         $velocidad = $_POST['velocidad'];
         $compartimento = $_POST['compartimento'];
 
+        //seleciona el nombre de la imagen
         $nameimagen=$_FILES['fileInput']['name'];
+        //seleciona el archivo en si
         $tmpimagen=$_FILES['fileInput']['tmp_name'];
+        //crea la ruta donde se va a almacenar el archivo
         $ruta = 'uploads/'.$nameimagen;
 
+        //Recoge el valor de la variable de sesion
         $ID_administrador = $_SESSION['id'];
 
+        //Comprueba el tamaño de la imagen para que no esceda de 500Kb 
         if($_FILES['fileInput']['size'] > 500000){
 
             $titulo = "Error";
             $mensaje = 'El archivo es demasiado grande';
 
         }else{
-
+            //Carga el archivo a una zona de preparacion
             if(is_uploaded_file($tmpimagen)) {
                 
-
+                //Hace una copia del archivo recogiendo, el archivo en si y la ruta 
                 if (copy($tmpimagen, $ruta)) {
+
                     $titulo = "";
                     $mensaje = 'Éxito al copiar el archivo.';
+                
                 } else {
+
                     $error = error_get_last();
                     echo 'Error al copiar el archivo: ' . $error['message'];
                 }
 
-
+                //Crea la consulta
                 $sql = "INSERT INTO Dirigibles (Modelo,Descripcion,Autonomia,Velocidad,Compartimento,Imagen,ID_administrador) VALUES ('$model','$descripcion','$autonomia','$velocidad','$compartimento','$ruta','$ID_administrador')";
 
+                //Realiza la consulta a la bd
                 if(mysqli_query($conn,$sql)){
                     $titulo = "Exito";
                     $mensaje = "El modelo de dirigible se subio correctamente";
@@ -59,20 +70,9 @@
                 $titulo = "Error:";
                 $mensaje = "Se produjo un error a la hora de cargar el archivo";
 
-            }
-            
+            }        
         }
-
-
     }
-
-    
-
-    
-
-
-    
-
 ?>
     <div id="formularioC" style="display: none;">
         <main>
@@ -88,6 +88,7 @@
                     
                     <div id="Subir">
                         <input type="file" id="fileInput" name="fileInput" accept=".png">
+                        <!--Cuando se clicke sobre el boton se activara seguidamente el input-->
                         <button onclick="document.getElementById('fileInput').click()">Seleccionar archivo</button>
                     </div>
                     
@@ -120,10 +121,11 @@
 
     <main id="hangar">
         <?php 
+            //Crea la consulta
             $sql = "SELECT * FROM Dirigibles";
-
+            //Realiza la consulta a la bd
             $resultado = mysqli_query($conn, $sql);
-
+            //Por cada fila mostrara un elemento
             foreach($resultado as $row) {
         ?>
 
@@ -148,6 +150,7 @@
     
 
     <?php include("../templates/footer.html"); ?>
+    <!--Llamar al archivo javaScript-->
     <script src="../js/crdDirigible.js"></script>
 </body>
 </html>
