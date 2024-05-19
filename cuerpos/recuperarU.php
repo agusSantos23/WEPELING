@@ -121,7 +121,6 @@
             $titulo = "Error";
             $mensaje = "No se ha encontrado ninguna cuenta asociada a ese correo electronico.";
         }
-
     }
     
     include("../templates/headerO.php");
@@ -136,16 +135,12 @@
     <main class="cuerpo">
         <form method="post">
 
-        
-
             <div class="inputs">
                 <label for="email">
                     <input type="email" id="email" name="email" placeholder="Correo" required>
                 </label>
             </div>
 
-        
-            
             <button type="submit">Enviar</button>
         </form>
     </main>

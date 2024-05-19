@@ -45,7 +45,7 @@
             
             $mensaje = "No se ha encontrado ningún usuario. Puede recuperar la contraseña en el siguiente <a href=recuperarU.php>enlace</a>.";
         }
-
+        //Cerrar la conexion con la bd
         $conn->close();
     }
 

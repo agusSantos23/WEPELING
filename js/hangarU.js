@@ -1,13 +1,11 @@
-
-const idUsuario = hangar.getAttribute('data-id');
-
-
+// Función para mostrar los dirigibles en el hangar
 function mostrarDirigibles(dirigibles, dirigiblesUsuario) {
     const hangar = document.getElementById('hangar');
-    hangar.innerHTML = ''; 
+    hangar.innerHTML = ''; // Limpiamos el contenido del hangar
 
-    if(dirigiblesUsuario.length === 0){
-        
+    // Verificamos si el usuario no tiene dirigibles
+    if (dirigiblesUsuario.length === 0) {
+        // Creamos un mensaje indicando que el usuario no tiene dirigibles
         const divV = document.createElement('div');
         divV.id = "vacio";
 
@@ -29,16 +27,13 @@ function mostrarDirigibles(dirigibles, dirigiblesUsuario) {
         divV.appendChild(p);
         divV.appendChild(imgD);
         hangar.appendChild(divV);
-
-    }else{
-
-
+    } else {
+        // Iteramos sobre los dirigibles del usuario
         dirigiblesUsuario.forEach(dirigibleUsuario => {
-
+            // Buscamos el dirigible correspondiente en la lista de dirigibles disponibles
             dirigibles.forEach(dirigible => {
-
                 if (dirigibleUsuario.ID_dirigible == dirigible.ID_dirigible) {
-
+                    // Creamos una tarjeta para mostrar el dirigible y un botón para eliminarlo
                     const divC = document.createElement('div');
                     divC.classList.add('cards');
 
@@ -54,6 +49,7 @@ function mostrarDirigibles(dirigibles, dirigiblesUsuario) {
                     btn.setAttribute('data-id', dirigible.ID_dirigible);
                     btn.textContent = 'Eliminar';
 
+                    // Agregamos los elementos creados al DOM
                     div.appendChild(img);
                     div.appendChild(h3);
                     divC.appendChild(div);
@@ -63,6 +59,7 @@ function mostrarDirigibles(dirigibles, dirigiblesUsuario) {
             });
         });
 
+        // Agregamos un evento de clic a cada botón de eliminar
         const btnsEliminar = document.querySelectorAll('button');
         btnsEliminar.forEach(btnEliminar => {
             btnEliminar.addEventListener('click', () => {
@@ -71,11 +68,10 @@ function mostrarDirigibles(dirigibles, dirigiblesUsuario) {
                 eliminarDirigible(dirigibleId, liked);
             });
         });
-
     }
 }
 
-
+// Función para eliminar un dirigible del hangar
 function eliminarDirigible(dirigibleId, liked) {
     const idUsuario = document.getElementById('hangar').getAttribute('data-id');
 
@@ -85,59 +81,58 @@ function eliminarDirigible(dirigibleId, liked) {
 
     xhtEliminar.onload = () => {
         if (xhtEliminar.status === 200) {
-
+            // Refrescamos la página después de eliminar el dirigible
             refrescar();
         } else {
             console.error('Error en la solicitud. Estado: ' + xhtEliminar.status);
         }
     };
 
+    // Enviamos la solicitud para eliminar el dirigible
     xhtEliminar.send('idDirigible=' + dirigibleId + '&idUsuario=' + idUsuario + '&liked=' + liked);
 }
 
-
-
 // Función para cargar y mostrar los dirigibles disponibles
 function refrescar() {
-
     const xhrDirigibles = new XMLHttpRequest();
     xhrDirigibles.open('GET', '../php/diri.php');
 
     xhrDirigibles.onload = () => {
         if (xhrDirigibles.status === 200) {
-
+            // Parseamos la respuesta como JSON
             const dirigibles = JSON.parse(xhrDirigibles.responseText);
-
+            // Cargamos los dirigibles del usuario
             cargarDirigiblesUsuario(dirigibles);
-
         } else {
-
             console.error('Error en la solicitud de dirigibles. Estado: ' + xhrDirigibles.status);
         }
     };
+
+    // Enviamos la solicitud para obtener los dirigibles
     xhrDirigibles.send();
 }
 
+// Función para cargar los dirigibles del usuario
 function cargarDirigiblesUsuario(dirigibles) {
+    const idUsuario = document.getElementById('hangar').getAttribute('data-id');
 
     const xhrHangares = new XMLHttpRequest();
-
     xhrHangares.open('GET', '../php/diriHangar.php?idUsuario=' + idUsuario);
 
     xhrHangares.onload = () => {
-
         if (xhrHangares.status === 200) {
-
+            // Parseamos la respuesta como JSON
             const dirigiblesUsuario = JSON.parse(xhrHangares.responseText);
-
+            // Mostramos los dirigibles del usuario
             mostrarDirigibles(dirigibles, dirigiblesUsuario);
-
         } else {
             console.error('Error en la solicitud de hangares de usuario. Estado: ' + xhrHangares.status);
         }
     };
+
+    // Enviamos la solicitud para obtener los dirigibles del usuario
     xhrHangares.send();
 }
 
-// Iniciar mostrando los dirigibles disponibles al cargar la página
+// Iniciamos mostrando los dirigibles disponibles al cargar la página
 refrescar();

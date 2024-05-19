@@ -1,17 +1,20 @@
 <?php 
+    //Iniciar las variables de sesion
     session_start();
 
+    //Comprueba de que la sesion este iniciada con en las dos variables
     if (isset($_SESSION["user"]) && $_SESSION["logueado"]) {    
-        
+        //Decidira el enlace del Hangar del Usuario o el Escaparate
         $presentacion = ($nombreEnlace == "Escaparate") ? "Hangar de " . $_SESSION["user"] : "Escaparate";
         $presentacion = ($nombreEnlace == "") ? "Con " . $_SESSION["user"] : $presentacion;
 
     }else{
-
+        //Si no tiene las dos variables de sesion iniciadas volvera a la pagina de inicio
         header("Location: ../index.php");
         exit();
     }
-
+    
+    //Si detecta el metodo Get primero vaciara la sesion y despues la destruira, por ultimo lo devulve a la pagina de inicio
     if(isset($_GET['cerrar_sesion'])) {
         
         session_unset();
@@ -47,9 +50,5 @@
             
             <a href="<?php echo $direccion ?>"><?php echo $nombreEnlace ?></a>
         </nav>
-            
-        
 
-        
-        
     </header>

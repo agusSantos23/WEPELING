@@ -6,7 +6,6 @@
 
     
     if($_POST){
-    
         //Recibir el valor del metodo POST evitando Inyeccion en la consulta de la bd
         $codigo = $conn->real_escape_string($_POST['codigo']);
 
@@ -30,7 +29,6 @@
             exit();
 
         }else{
-
             //Redirigir a la pagina de inicio de sesion
             header("Location: ../index.php");
             //Asegurarse de que sale del documento
@@ -41,7 +39,6 @@
     include("../templates/headerO.php");
     include("../templates/decoracionO.php");
 ?>
-
 
     <header>
         <h1><a href="../index.php">WEPELINGS</a></h1>
